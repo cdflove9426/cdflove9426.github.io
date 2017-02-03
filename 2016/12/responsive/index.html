@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>responsive | xiao啊菲-博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="响应式," />
+  
+
+  <meta name="description" content="响应式自适应网页设计（Responsive Web Design）
+利用媒体查询 减少小屏幕加载图片，文字12345678910111213@media all and( min-width:53.75em)&amp;#123;    header[role=&quot;banner&quot;] .inner&amp;#123;        background: url(&apos;../image/12.png&apos;);    &amp;#125">
+<meta property="og:type" content="article">
+<meta property="og:title" content="responsive">
+<meta property="og:url" content="/2016/12/responsive/index.html">
+<meta property="og:site_name" content="xiao啊菲-博客">
+<meta property="og:description" content="响应式自适应网页设计（Responsive Web Design）
+利用媒体查询 减少小屏幕加载图片，文字12345678910111213@media all and( min-width:53.75em)&amp;#123;    header[role=&quot;banner&quot;] .inner&amp;#123;        background: url(&apos;../image/12.png&apos;);    &amp;#125">
+<meta property="og:updated_time" content="2017-01-26T07:33:09.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="responsive">
+<meta name="twitter:description" content="响应式自适应网页设计（Responsive Web Design）
+利用媒体查询 减少小屏幕加载图片，文字12345678910111213@media all and( min-width:53.75em)&amp;#123;    header[role=&quot;banner&quot;] .inner&amp;#123;        background: url(&apos;../image/12.png&apos;);    &amp;#125">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">XX</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">XX</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#响应式"><span class="toc-text">响应式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#利用媒体查询-减少小屏幕加载图片，文字"><span class="toc-text">利用媒体查询 减少小屏幕加载图片，文字</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通过判断属性来修改样式"><span class="toc-text">通过判断属性来修改样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matchMedia"><span class="toc-text">matchMedia</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-responsive" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">responsive</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Cai</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.baidu.com/2016/12/responsive/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h1><p><a href="http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html" target="_blank" rel="external">自适应网页设计（Responsive Web Design）</a></p>
+<h1 id="利用媒体查询-减少小屏幕加载图片，文字"><a href="#利用媒体查询-减少小屏幕加载图片，文字" class="headerlink" title="利用媒体查询 减少小屏幕加载图片，文字"></a>利用媒体查询 减少小屏幕加载图片，文字</h1><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@media all and( min-width:53.75em)&#123;</div><div class="line">    header[role="banner"] .inner&#123;</div><div class="line">        background: url('../image/12.png');</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //在大视图中加载字体</div><div class="line">&#125;</div><div class="line">@media all and(max-width: 53.75em)&#123;</div><div class="line">      header[role="banner"] .inner&#123;</div><div class="line">        background: none;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="通过判断属性来修改样式"><a href="#通过判断属性来修改样式" class="headerlink" title="通过判断属性来修改样式"></a>通过判断属性来修改样式</h2><p>或者参考 <a href="http://www.webhek.com/device-state-detection-css-media-queries-javascript/" target="_blank" rel="external">Link</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nav= <span class="built_in">document</span>.getElementById(<span class="string">'nav'</span>);</div><div class="line"><span class="keyword">var</span> navItem= nav.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"></div><div class="line"><span class="comment">// is it floated?</span></div><div class="line"><span class="keyword">var</span> floated = navItem[<span class="number">0</span>].currentStyle? navItem[<span class="number">0</span>].currentStyle[<span class="string">'float'</span>]:</div><div class="line">                <span class="built_in">document</span>.defaultView.getComputedStyle(navItem[<span class="number">0</span>],<span class="literal">null</span>).getPropertyValue(<span class="string">'float'</span>);</div><div class="line">                <span class="comment">//parseInt(window.getComputedStyle(indicator).getPropertyValue('z-index'), 10);</span></div><div class="line">               </div><div class="line"><span class="keyword">if</span>( floated !=<span class="string">'left'</span>)&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="matchMedia"><a href="#matchMedia" class="headerlink" title="matchMedia"></a>matchMedia</h2><p>matchMedia 是js自带方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.matchMedia(<span class="string">"(min-width: 400px)"</span>).matches) &#123;</div><div class="line">  <span class="comment">/* the viewport is at least 400 pixels wide */</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  <span class="comment">/* the viewport is less than 400 pixels wide */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/responsive-img/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/12/html5-note/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = '/2016/12/responsive/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+<script src="https://cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+ <script>hljs.initHighlightingOnLoad();</script>
+ <script> console.log('haha')</script>
+</body>
+</html>

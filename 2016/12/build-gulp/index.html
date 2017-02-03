@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>build_gulp | xiao啊菲-博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="build,gulp," />
+  
+
+  <meta name="description" content="gulp的使用以及项目构建
+gulp-stsrtBuilding With Gulp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="build_gulp">
+<meta property="og:url" content="/2016/12/build-gulp/index.html">
+<meta property="og:site_name" content="xiao啊菲-博客">
+<meta property="og:description" content="gulp的使用以及项目构建
+gulp-stsrtBuilding With Gulp">
+<meta property="og:updated_time" content="2017-01-15T15:48:26.794Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="build_gulp">
+<meta name="twitter:description" content="gulp的使用以及项目构建
+gulp-stsrtBuilding With Gulp">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">XX</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">XX</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插件"><span class="toc-text">插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#雪碧图"><span class="toc-text">雪碧图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gulp-fontspider按需压缩中文字体"><span class="toc-text">Gulp+fontspider按需压缩中文字体</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MD5-和静态文件上传到cdn"><span class="toc-text">MD5 和静态文件上传到cdn</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#区分开发模式和生产模式"><span class="toc-text">区分开发模式和生产模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于触发bowerSync自动刷新的一些疑问和解决方法"><span class="toc-text">关于触发bowerSync自动刷新的一些疑问和解决方法</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-build-gulp" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">build_gulp</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.17</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Cai</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.baidu.com/2016/12/build-gulp/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>gulp的使用以及项目构建</p>
+<p><a href="https://github.com/vigetlabs/gulp-starter" target="_blank" rel="external">gulp-stsrt</a><br><a href="https://www.smashingmagazine.com/2014/06/building-with-gulp/" target="_blank" rel="external">Building With Gulp</a><br><a id="more"></a></p>
+<p><a href="http://blog.csdn.net/fspwz/article/details/50524721" target="_blank" rel="external">gulp插件推荐，无敌好用</a><br><a href="http://www.cnblogs.com/Darren_code/p/gulp.html" target="_blank" rel="external">gulp使用小结)</a></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><a href="https://segmentfault.com/a/1190000004136053?_ea=503811" target="_blank" rel="external">有人用es6写 gulp 文件?!!</a><br>其实gulp 运行与node ，node支持es6,但还没能支持<code>import</code>语法。<br>可以看看别人的思路 但是还是不建议这样写</p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p><a href="http://www.browsersync.cn/docs/gulp/" target="_blank" rel="external">browsersync</a></p>
+<p>css</p>
+<ul>
+<li>压缩<a href="https://github.com/ben-eb/cssnano" target="_blank" rel="external">cssnano</a><br>autoprefixer</li>
+</ul>
+<p> img</p>
+<p> 用这个更好<br> <a href="https://www.npmjs.com/package/gulp-image" target="_blank" rel="external">gulp-image</a><br>  -<a href="http://www.ydcss.com/archives/26" target="_blank" rel="external">gulp教程之gulp-imagemin</a></p>
+<h3 id="雪碧图"><a href="#雪碧图" class="headerlink" title="雪碧图"></a>雪碧图</h3><p><strong>gulp.spritesmith-multi </strong>(根据文件夹生成多个图)、</p>
+<p><a href="https://segmentfault.com/a/1190000007121606" target="_blank" rel="external">gulp.spritesmith 教程</a><br><a href="https://www.npmjs.com/package/gulp.spritesmith" target="_blank" rel="external">gulp.spritesmith</a><br><a href="http://stackoverflow.com/questions/33552027/gulp-make-sprites-by-folder/33555401#33555401" target="_blank" rel="external">gulp.spritesmith 同过其他插件生成多个图</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'spritesmith'</span>,[<span class="string">'clean'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'src/spriteTest/images/*.png'</span>)</div><div class="line">            .pipe(spritesmith(&#123;</div><div class="line">                <span class="attr">imgName</span>:<span class="string">'images/sprite20161010.png'</span>,  <span class="comment">//保存合并后图片的地址</span></div><div class="line">                cssName:<span class="string">'css/sprite.css'</span>,   <span class="comment">//保存合并后对于css样式的地址</span></div><div class="line">                padding:<span class="number">20</span>,</div><div class="line">                <span class="attr">algorithm</span>:<span class="string">'binary-tree'</span>,</div><div class="line">                <span class="attr">cssTemplate</span>:<span class="string">"src/spriteTest/handlebarsStr.css"</span></div><div class="line">            &#125;))</div><div class="line">            .pipe(gulp.dest(<span class="string">'//雪碧图gulp.spritesmith</span></div></pre></td></tr></table></figure>
+<p>gulp.spritesmith-multi 的使用<br>gulp.spritesmith-multi 给予gulp.spritesmith  说以大部分配置都是共同的</p>
+<p>默认配置为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> options = &#123;</div><div class="line">  <span class="attr">imgName</span>: sprite + <span class="string">'.png'</span>,</div><div class="line">  <span class="attr">cssName</span>: sprite + <span class="string">'.css'</span>,</div><div class="line">  <span class="attr">cssTemplate</span>: builtin.css,</div><div class="line">  <span class="attr">cssSpritesheetName</span>: <span class="string">'sp-'</span> + sprite,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>作者提供的修改配置的方法为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// Generate our spritesheet </span></div><div class="line"> <span class="keyword">var</span> spriteData = gulp.src(<span class="string">'default/**/*.png'</span>)</div><div class="line">   .pipe(spritesmith(&#123;</div><div class="line">     <span class="attr">spritesmith</span>: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">       options.imgPath = <span class="string">'../images/'</span> + options.imgName <span class="comment">//在css中的图片地址 </span></div><div class="line">     &#125;</div><div class="line">   &#125;))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>options.imgPath 这个属性很重要啊 因为每个项目可能文件架构等不同，css和图片的位置不一样 或者说 我是想把图片放上7牛云？？ 那也是说不定的。</p>
+</blockquote>
+<h3 id="Gulp-fontspider按需压缩中文字体"><a href="#Gulp-fontspider按需压缩中文字体" class="headerlink" title="Gulp+fontspider按需压缩中文字体"></a>Gulp+fontspider按需压缩中文字体</h3><p><a href="http://font-spider.org/" target="_blank" rel="external">字蛛</a><br><a href="http://www.jianshu.com/p/666c83666636" target="_blank" rel="external">Gulp+fontspider按需压缩中文字体</a></p>
+<h1 id="MD5-和静态文件上传到cdn"><a href="#MD5-和静态文件上传到cdn" class="headerlink" title="MD5 和静态文件上传到cdn"></a>MD5 和静态文件上传到cdn</h1><p><a href="http://blog.csdn.net/cczhumin/article/details/50990726" target="_blank" rel="external">text</a></p>
+<h1 id="区分开发模式和生产模式"><a href="#区分开发模式和生产模式" class="headerlink" title="区分开发模式和生产模式"></a>区分开发模式和生产模式</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line">gulp.task(<span class="string">'env:dev'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> process.env.NODE_ENV =<span class="string">'development'</span> ;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'env:build'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> process.env.NODE_ENV = <span class="string">'production'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在gulpfile.js 中引用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'env:dev'</span>,<span class="string">'ejs'</span>,<span class="string">'sass'</span>,<span class="string">'javascript'</span>,<span class="string">'watch'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"default"</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">gulp.task(<span class="string">'build'</span>, [<span class="string">'env:build'</span>,<span class="string">'ejs'</span>,<span class="string">'sass'</span>,<span class="string">'javascript'</span>,<span class="string">'watch'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"default"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在task中应用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">process.env.NODE_ENV  <span class="comment">//</span></div></pre></td></tr></table></figure>
+<h1 id="关于触发bowerSync自动刷新的一些疑问和解决方法"><a href="#关于触发bowerSync自动刷新的一些疑问和解决方法" class="headerlink" title="关于触发bowerSync自动刷新的一些疑问和解决方法"></a>关于触发bowerSync自动刷新的一些疑问和解决方法</h1><p>gulp 中通过watch 方法监控文件</p>
+<p>bowersync.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create()</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = browserSync</div></pre></td></tr></table></figure>
+<p>watch.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'./bowersync'</span>);</div><div class="line"></div><div class="line"> <span class="comment">//sass</span></div><div class="line">  gulp.watch(config_sass.paths.src ,  [<span class="string">'sass'</span>],<span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123; browserSync.reload(); &#125;);</div><div class="line"></div><div class="line"><span class="comment">//   ejs</span></div><div class="line">  gulp.watch([</div><div class="line">        config_ejs.paths.src,</div><div class="line">        config_ejs.paths.json],  [<span class="string">'ejs'</span>])</div><div class="line">     .on(<span class="string">'change'</span>,handle);</div></pre></td></tr></table></figure>
+<p>sass 直接在watch方法中添加触发函数，可以在执行完 <code>sass</code>流程后 除非刷新</p>
+<p>ejs 如果使用和sass一样的方法 ，没有触发。<br>改为通过 <code>on</code>方法后，可以出发刷新操作。但 <code>on</code>方法是在进行 ejs流程 中 同时进行刷新。导致 ejs 还没生成好就已经刷新好了页面。</p>
+<p><strong>解决方法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.pipe(gulp.dest(path_dist))</div><div class="line"><span class="comment">//  .pipe(browserSync.reload(&#123;stream:true&#125;));</span></div></pre></td></tr></table></figure>
+<p>就是直接在pipe 方法中添加刷新操作。</p>
+
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/english/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/12/node-exports/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = '/2016/12/build-gulp/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+<script src="https://cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+ <script>hljs.initHighlightingOnLoad();</script>
+ <script> console.log('haha')</script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>js模板文件开-mustache.js | xiao啊菲-博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="js,template," />
+  
+
+  <meta name="description" content="js模板文件开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js模板文件开-mustache.js">
+<meta property="og:url" content="/2016/12/template-mustache/index.html">
+<meta property="og:site_name" content="xiao啊菲-博客">
+<meta property="og:description" content="js模板文件开发">
+<meta property="og:updated_time" content="2017-01-15T15:51:11.232Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js模板文件开-mustache.js">
+<meta name="twitter:description" content="js模板文件开发">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">XX</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">XX</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mustacne"><span class="toc-text">Mustacne</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#搭配JQ"><span class="toc-text">搭配JQ</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#if-判断"><span class="toc-text">if 判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组循环"><span class="toc-text">数组循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#function"><span class="toc-text">function</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-template-mustache" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">js模板文件开-mustache.js</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.13</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Cai</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.baidu.com/2016/12/template-mustache/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="Mustacne"><a href="#Mustacne" class="headerlink" title="Mustacne"></a>Mustacne</h1><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var view = &#123;</div><div class="line">  title: &quot;Joe&quot;,</div><div class="line">  calc: function () &#123;</div><div class="line">    return 2 + 4;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var output = Mustache.render(&quot;&#123;&#123;title&#125;&#125; spends &#123;&#123;calc&#125;&#125;&quot;, view);</div></pre></td></tr></table></figure>
+<h3 id="搭配JQ"><a href="#搭配JQ" class="headerlink" title="搭配JQ"></a>搭配JQ</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"loadUser()"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"target"</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">"template"</span> <span class="attr">type</span>=<span class="string">"x-tmpl-mustache"</span>&gt;</span><span class="undefined"></span></div><div class="line">Hello &#123;&#123; name &#125;&#125;!</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadUser</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> template = $(<span class="string">'#template'</span>).html();</div><div class="line">  Mustache.parse(template);   <span class="comment">// optional, speeds up future uses</span></div><div class="line">  <span class="keyword">var</span> rendered = Mustache.render(template, &#123;<span class="attr">name</span>: <span class="string">"Luke"</span>&#125;);</div><div class="line">  $(<span class="string">'#target'</span>).html(rendered);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="if-判断"><a href="#if-判断" class="headerlink" title="if 判断"></a>if 判断</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//view</div><div class="line">&#123;</div><div class="line">  "person": false</div><div class="line">&#125;</div><div class="line"></div><div class="line">//template</div><div class="line">Shown.</div><div class="line">&#123;&#123;#person&#125;&#125;</div><div class="line">Never shown!</div><div class="line">&#123;&#123;/person&#125;&#125;</div><div class="line"></div><div class="line"></div><div class="line">//output</div><div class="line">Shown.</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "repos": []</div><div class="line">&#125;</div><div class="line"></div><div class="line">//Template:</div><div class="line"></div><div class="line">&#123;&#123;#repos&#125;&#125;&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;&#123;&#123;/repos&#125;&#125;</div><div class="line">&#123;&#123;^repos&#125;&#125;No repos :(&#123;&#123;/repos&#125;&#125;</div><div class="line"></div><div class="line"></div><div class="line">//Output:</div><div class="line"></div><div class="line">No repos :(</div></pre></td></tr></table></figure>
+<h2 id="数组循环"><a href="#数组循环" class="headerlink" title="数组循环"></a>数组循环</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//View:</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"stooges"</span>: [</div><div class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Moe"</span> &#125;,</div><div class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Larry"</span> &#125;,</div><div class="line">    &#123; <span class="string">"name"</span>: <span class="string">"Curly"</span> &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//Template:</div><div class="line">&#123;&#123;#stooges&#125;&#125;</div><div class="line">&lt;b&gt;&#123;&#123;name&#125;&#125;&lt;/b&gt;</div><div class="line">&#123;&#123;/stooges&#125;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//Output:</div><div class="line">&lt;b&gt;Moe&lt;/b&gt;</div><div class="line">&lt;b&gt;Larry&lt;/b&gt;</div><div class="line">&lt;b&gt;Curly&lt;/b&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//View:</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"musketeers"</span>: [<span class="string">"Athos"</span>, <span class="string">"Aramis"</span>, <span class="string">"Porthos"</span>, <span class="string">"D'Artagnan"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//Template:</div><div class="line">&#123;&#123;#musketeers&#125;&#125;</div><div class="line">* &#123;&#123;.&#125;&#125;</div><div class="line">&#123;&#123;/musketeers&#125;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//Output:</div><div class="line"></div><div class="line">* Athos</div><div class="line">* Aramis</div><div class="line">* Porthos</div><div class="line">* D&apos;Artagnan</div></pre></td></tr></table></figure>
+<h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//View:</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"beatles"</span>: [</div><div class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"John"</span>, <span class="string">"lastName"</span>: <span class="string">"Lennon"</span> &#125;,</div><div class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Paul"</span>, <span class="string">"lastName"</span>: <span class="string">"McCartney"</span> &#125;,</div><div class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"George"</span>, <span class="string">"lastName"</span>: <span class="string">"Harrison"</span> &#125;,</div><div class="line">    &#123; <span class="string">"firstName"</span>: <span class="string">"Ringo"</span>, <span class="string">"lastName"</span>: <span class="string">"Starr"</span> &#125;</div><div class="line">  ],</div><div class="line">  <span class="string">"name"</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//Template:</div><div class="line">&#123;&#123;#beatles&#125;&#125;</div><div class="line">* &#123;&#123;name&#125;&#125;</div><div class="line">&#123;&#123;/beatles&#125;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//Output:</div><div class="line"></div><div class="line">* John Lennon</div><div class="line">* Paul McCartney</div><div class="line">* George Harrison</div><div class="line">* Ringo Starr</div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/hexo/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/12/module-js/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = '/2016/12/template-mustache/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+<script src="https://cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+ <script>hljs.initHighlightingOnLoad();</script>
+ <script> console.log('haha')</script>
+</body>
+</html>

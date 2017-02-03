@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>node.js中module.export 和 export方法的区别 | xiao啊菲-博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="node," />
+  
+
+  <meta name="description" content="Node.js Module - exports vs module.exports">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node.js中module.export 和 export方法的区别">
+<meta property="og:url" content="/2016/12/node-exports/index.html">
+<meta property="og:site_name" content="xiao啊菲-博客">
+<meta property="og:description" content="Node.js Module - exports vs module.exports">
+<meta property="og:updated_time" content="2017-01-15T15:49:41.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node.js中module.export 和 export方法的区别">
+<meta name="twitter:description" content="Node.js Module - exports vs module.exports">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">XX</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">XX</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node-js中module-export-和-export方法的区别"><span class="toc-text">node.js中module.export 和 export方法的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#module-export-覆盖-export"><span class="toc-text">module.export 覆盖 export</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用"><span class="toc-text">如何使用</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-node-exports" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">node.js中module.export 和 export方法的区别</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.18</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Cai</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.baidu.com/2016/12/node-exports/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p><a href="http://www.hacksparrow.com/node-js-exports-vs-module-exports.html" target="_blank" rel="external">Node.js Module - exports vs module.exports</a></p>
+<a id="more"></a>
+<!-- toc  -->
+<h1 id="node-js中module-export-和-export方法的区别"><a href="#node-js中module-export-和-export方法的区别" class="headerlink" title="node.js中module.export 和 export方法的区别"></a>node.js中module.export 和 export方法的区别</h1><h2 id="module-export-覆盖-export"><a href="#module-export-覆盖-export" class="headerlink" title="module.export 覆盖 export"></a>module.export 覆盖 export</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">exports.name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'My name is Lemmy Kilmister'</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><strong>在另一个文件中你这样引用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> rocker = <span class="built_in">require</span>(<span class="string">'./rocker.js'</span>);</div><div class="line">rocker.name(); <span class="comment">// 'My name is Lemmy Kilmister'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Module.exports才是真正的接口，exports只不过是它的一个辅助工具。　最终返回给调用的是Module.exports而不是exports。<br>所有的exports收集到的属性和方法，都赋值给了Module.exports。当然，这有个前提，就是Module.exports本身不具备任何属性和方法。如果，Module.exports已经具备一些属性和方法，那么exports收集来的信息将被忽略。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="string">'ROCK IT!'</span>;</div><div class="line">exports.name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'My name is Lemmy Kilmister'</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><strong>再次引用执行rocker.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> rocker = <span class="built_in">require</span>(<span class="string">'./rocker.js'</span>);</div><div class="line">rocker.name(); <span class="comment">// TypeError: Object ROCK IT! has no method 'name'</span></div></pre></td></tr></table></figure>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><blockquote>
+<p>如果没有显式的给Module.exports设置任何属性和方法，那么exports设置给Module.exports的属性。</p>
+</blockquote>
+<p>下面例子中，你的模块是一个类：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">name, age</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    <span class="keyword">this</span>.info = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name +<span class="string">' is '</span>+ <span class="keyword">this</span>.age +<span class="string">' years old'</span>);</div><div class="line">    &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> Cai = <span class="built_in">require</span>(<span class="string">'./cai.js'</span>);</div><div class="line"><span class="keyword">var</span> cai = <span class="keyword">new</span> Cai(<span class="string">'cai'</span>, <span class="number">18</span>);</div><div class="line">cai.info(); <span class="comment">// cai is 18 years old</span></div></pre></td></tr></table></figure>
+<p>下面例子中，你的模块是一个数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = [<span class="string">'Lemmy Kilmister'</span>, <span class="string">'Ozzy Osbourne'</span>, <span class="string">'Ronnie James Dio'</span>, <span class="string">'Steven Tyler'</span>, <span class="string">'Mick Jagger'</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ary = <span class="built_in">require</span>(<span class="string">'./array.js'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Rockin in heaven: '</span> + ary[<span class="number">2</span>]); <span class="comment">//Rockin in heaven: Ronnie James Dio</span></div></pre></td></tr></table></figure>
+<p>模块是一个特定的类型就用Module.exports。<br>模块是一个典型的“实例化对象”就用exports。</p>
+<p>给Module.exports添加属性类似于给exports添加属性。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!--不推荐啦--&gt;</div><div class="line"><span class="built_in">module</span>.exports.name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'My name is Lemmy Kilmister'</span>);</div><div class="line">&#125;;</div><div class="line"><span class="comment">//同样，exports是这样的</span></div><div class="line"></div><div class="line">exports.name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'My name is Lemmy Kilmister'</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports.age = <span class="number">68</span>;</div><div class="line">exports.name = <span class="string">'Lemmy Kilmister'</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> rocker = <span class="built_in">require</span>(<span class="string">'./rocker.js'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'%s is %s'</span>, rocker.name, rocker.age); <span class="comment">// Lemmy Kilmister is 68</span></div></pre></td></tr></table></figure>
+<p><strong>错误示范</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="string">'LOL'</span>;</div><div class="line"><span class="built_in">module</span>.exports.age = <span class="number">68</span>;</div><div class="line">exports.name = <span class="string">'Lemmy Kilmister'</span>;</div><div class="line">or</div><div class="line"><span class="built_in">module</span>.exports.age = <span class="number">68</span>;</div><div class="line">exports.name = <span class="string">'Lemmy Kilmister'</span>;</div><div class="line"><span class="built_in">module</span>.exports = <span class="string">'WTF'</span>;</div><div class="line"><span class="comment">//the order doesn't matter, rocker.age and rocker.name will now be undefined.</span></div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/build-gulp/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/12/summary/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = '/2016/12/node-exports/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+<script src="https://cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+ <script>hljs.initHighlightingOnLoad();</script>
+ <script> console.log('haha')</script>
+</body>
+</html>

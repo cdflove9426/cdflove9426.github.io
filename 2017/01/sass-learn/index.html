@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>sass笔记 | xiao啊菲-博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="sass," />
+  
+
+  <meta name="description" content="听说现在很多sass的项目都用, 这个 Bourbon - A Lightweight Sass Tool Set  
+sass文件组织Sass: Directory Structures That Help You Maintain Your Code知乎-你是如何去组织项目中的 Less/Sass 代码的
+sass 基础入门SASS官方文档SASS参考手册SASS基础——十个常见的Mixi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass笔记">
+<meta property="og:url" content="/2017/01/sass-learn/index.html">
+<meta property="og:site_name" content="xiao啊菲-博客">
+<meta property="og:description" content="听说现在很多sass的项目都用, 这个 Bourbon - A Lightweight Sass Tool Set  
+sass文件组织Sass: Directory Structures That Help You Maintain Your Code知乎-你是如何去组织项目中的 Less/Sass 代码的
+sass 基础入门SASS官方文档SASS参考手册SASS基础——十个常见的Mixi">
+<meta property="og:updated_time" content="2017-02-01T08:24:36.848Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass笔记">
+<meta name="twitter:description" content="听说现在很多sass的项目都用, 这个 Bourbon - A Lightweight Sass Tool Set  
+sass文件组织Sass: Directory Structures That Help You Maintain Your Code知乎-你是如何去组织项目中的 Less/Sass 代码的
+sass 基础入门SASS官方文档SASS参考手册SASS基础——十个常见的Mixi">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">XX</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">XX</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sass文件组织"><span class="toc-text">sass文件组织</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sass-基础入门"><span class="toc-text">sass 基础入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编程风格"><span class="toc-text">编程风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套"><span class="toc-text">嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导入文件"><span class="toc-text">导入文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码重用"><span class="toc-text">代码重用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#extend"><span class="toc-text">@extend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mixin-混合指令"><span class="toc-text">@mixin 混合指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色函数"><span class="toc-text">颜色函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#default"><span class="toc-text">!default</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sass-高级用法"><span class="toc-text">sass 高级用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件语句"><span class="toc-text">条件语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环"><span class="toc-text">循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-text">@for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while"><span class="toc-text">@while</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义函数"><span class="toc-text">自定义函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sass-面向对象css-使用"><span class="toc-text">sass 面向对象css - 使用%</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sass-与媒体查询"><span class="toc-text">sass 与媒体查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通过-mixin-编写媒体查询语句"><span class="toc-text">通过@mixin 编写媒体查询语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#升级使用"><span class="toc-text">升级使用</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-sass-learn" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">sass笔记</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.01.26</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Cai</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.baidu.com/2017/01/sass-learn/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <a id="more"></a>
+<!-- toc -->
+<p>听说现在很多sass的项目都用, 这个 <a href="http://bourbon.io" target="_blank" rel="external">Bourbon</a> - A Lightweight Sass Tool Set  </p>
+<h1 id="sass文件组织"><a href="#sass文件组织" class="headerlink" title="sass文件组织"></a>sass文件组织</h1><p><a href="http://vanseodesign.com/css/sass-directory-structures/" target="_blank" rel="external">Sass: Directory Structures That Help You Maintain Your Code</a><br><a href="https://www.zhihu.com/question/35708352" target="_blank" rel="external">知乎-你是如何去组织项目中的 Less/Sass 代码的</a></p>
+<h1 id="sass-基础入门"><a href="#sass-基础入门" class="headerlink" title="sass 基础入门"></a>sass 基础入门</h1><p><a href="http://www.w3cplus.com/preprocessor/sass-chinese-reference.html" target="_blank" rel="external">SASS官方文档</a><br><a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank" rel="external">SASS参考手册</a><br><a href="http://www.w3cplus.com/preprocessor/ten-best-common-mixins.html" target="_blank" rel="external">SASS基础——十个常见的Mixins</a><br><a href="http://www.cnblogs.com/Iona/p/5302476.html" target="_blank" rel="external">SASS使用总结</a></p>
+<h2 id="编程风格"><a href="#编程风格" class="headerlink" title="编程风格"></a>编程风格</h2><ul>
+<li>nested：嵌套缩进的css代码，它是默认值。</li>
+<li>expanded：没有缩进的、扩展的css代码。</li>
+<li>compact：简洁格式的css代码。</li>
+<li>compressed：压缩后的css代码。</li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>使用<code>$</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$font-stack: Helvetica, sans-serif;</div><div class="line">$primary-color: #333;</div><div class="line"></div><div class="line">body &#123;</div><div class="line">  font: 100% $font-stack;</div><div class="line">  color: $primary-color;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果变量需要镶嵌在字符串之中，就必须需要写在#{}之中。(下次见到 别觉得神奇)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">　　$side : left;</div><div class="line">　　.rounded &#123;</div><div class="line">　　　　border-#&#123;$side&#125;-radius: 5px;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line">### 变量的算法</div><div class="line"></div><div class="line">```css</div><div class="line">　　body &#123;</div><div class="line">　　　　margin: (14px/2);</div><div class="line">　　　　top: 50px + 100px;</div><div class="line">　　　　right: $var * 10%;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">　div &#123;</div><div class="line">　　　　hi &#123;</div><div class="line">　　　　　　color:red;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line"></div><div class="line">　a &#123;</div><div class="line">　　　　&amp;:hover &#123; color: #ffb3ff; &#125;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>SASS共有两种注释风格。</p>
+<ul>
+<li>标准的CSS注释 /<em> comment </em>/ ，会保留到编译后的文件。</li>
+<li><p>单行注释  // comment，只保留在SASS源文件中，编译后被省略。</p>
+</li>
+<li><p>“重要注释”。即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息。</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　<span class="comment">/*! </span></div><div class="line">　　　　重要注释！</div><div class="line">　　*/</div></pre></td></tr></table></figure>
+<h2 id="导入文件"><a href="#导入文件" class="headerlink" title="导入文件"></a>导入文件</h2><p>@import命令，用来插入外部文件。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　@<span class="keyword">import</span> <span class="string">"path/filename.scss"</span>;</div></pre></td></tr></table></figure>
+<p><strong>如果插入的是.css文件，则等同于css的import命令。</strong><br>　　@import “foo.css”;</p>
+<h2 id="代码重用"><a href="#代码重用" class="headerlink" title="代码重用"></a>代码重用</h2><h3 id="extend"><a href="#extend" class="headerlink" title="@extend"></a>@extend</h3><p>SASS允许一个选择器，继承另一个选择器。比如，现有class1：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　<span class="selector-class">.class1</span> &#123;</div><div class="line">　　　　<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<p>class2要继承class1，就要使用@extend命令：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　.class2 &#123;</div><div class="line">　　　　@extend .class1;</div><div class="line">　　　　font-size:120%;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="mixin-混合指令"><a href="#mixin-混合指令" class="headerlink" title="@mixin 混合指令"></a>@mixin 混合指令</h3><p>使用@mixin命令，定义一个代码块。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　@<span class="keyword">mixin</span> left &#123;</div><div class="line">　　　　<span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</div><div class="line">　　　　<span class="selector-tag">margin-left</span>: 10<span class="selector-tag">px</span>;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<p>使用@include命令，调用这个mixin。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　div &#123;</div><div class="line">　　　　@include left;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<p><strong>向混合样式中导入内容</strong> (Passing Content Blocks to a Mixin)<br>在引用混合样式的时候，可以先将一段代码导入到混合指令中，然后再输出混合样式，额外导入的部分将出现在 @content标志的地方：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@mixin apply-to-ie6-only &#123;</div><div class="line">  * html &#123;</div><div class="line">    @content;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@include apply-to-ie6-only &#123;</div><div class="line">  #logo &#123;</div><div class="line">    background-image: url(/logo.gif);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译为</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* <span class="selector-tag">html</span> <span class="selector-id">#logo</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(/logo.gif);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>指定参数</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">　@mixin left($value: 10px) &#123;</div><div class="line">　　　　float: left;</div><div class="line">　　　　margin-right: $value;</div><div class="line">　　&#125;</div><div class="line">&lt;!--使用的时候，根据需要加入参数：--&gt;</div><div class="line">　　div &#123;</div><div class="line">　　　　@include left(20px);</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<h2 id="颜色函数"><a href="#颜色函数" class="headerlink" title="颜色函数"></a>颜色函数</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　lighten(#cc3, 10%) // #d6d65c</div><div class="line">　　darken(#cc3, 10%) // #a3a329</div><div class="line">　　grayscale(#cc3) // #808080</div><div class="line">　　complement(#cc3) // #33c</div></pre></td></tr></table></figure>
+<h2 id="default"><a href="#default" class="headerlink" title="!default"></a>!default</h2><p>!defalt  表示默认值</p>
+<h1 id="sass-高级用法"><a href="#sass-高级用法" class="headerlink" title="sass 高级用法"></a>sass 高级用法</h1><h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><p>@if可以用来判断：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　p &#123;</div><div class="line">　　　　@if 1 + 1 == 2 &#123; border: 1px solid; &#125;</div><div class="line">　　　　@if 5 &lt; 3 &#123; border: 2px dotted; &#125;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<p>配套的还有@else命令：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　@<span class="keyword">if</span> lightness($color) &gt; <span class="number">30%</span> &#123;</div><div class="line">　　　　<span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</div><div class="line">　　&#125; @<span class="keyword">else</span> &#123;</div><div class="line">　　　　<span class="selector-tag">background-color</span>: <span class="selector-id">#fff</span>;</div><div class="line">　　&#125;</div><div class="line">`</div></pre></td></tr></table></figure>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="for"><a href="#for" class="headerlink" title="@for"></a>@for</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@for $i from 1 to 10 &#123;</div><div class="line">　　　　.border-#&#123;$i&#125; &#123;</div><div class="line">　　　　　　border: #&#123;$i&#125;px solid blue;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<h3 id="while"><a href="#while" class="headerlink" title="@while"></a>@while</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">　$i: 6;</div><div class="line">　　@while $i &gt; 0 &#123;</div><div class="line">　　　　.item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</div><div class="line"></div><div class="line">　　　　$i: $i - 2;</div><div class="line">　　&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">### @each</div><div class="line"></div><div class="line">each命令，作用与for类似：</div><div class="line"></div><div class="line">```css</div><div class="line">　　@each $member in a, b, c, d &#123;</div><div class="line">　　　　.#&#123;$member&#125; &#123;</div><div class="line">　　　　　　background-image: url("/image/#&#123;$member&#125;.jpg");</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　@<span class="keyword">function</span> double($n) &#123;</div><div class="line">　　　　@<span class="keyword">return</span> $n * <span class="number">2</span>;</div><div class="line">　　&#125;</div><div class="line">　　<span class="selector-id">#sidebar</span> &#123;</div><div class="line">　　　　<span class="attribute">width</span>: <span class="built_in">double</span>(5px);</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<h1 id="sass-面向对象css-使用"><a href="#sass-面向对象css-使用" class="headerlink" title="sass 面向对象css - 使用%"></a>sass 面向对象css - 使用%</h1><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">%button &#123;</div><div class="line">  min-width: 100px;</div><div class="line">  padding: 1em;</div><div class="line">  border-radius: 1em;</div><div class="line">&#125;</div><div class="line">%twitter-background &#123;</div><div class="line">  color: #fff;</div><div class="line">  background: #55acee;</div><div class="line">&#125;</div><div class="line">%facebook-background &#123;</div><div class="line">  color: #fff;</div><div class="line">  background: #3b5998;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.btn &#123;</div><div class="line">  &amp;--twitter &#123;</div><div class="line">    @extend %button;</div><div class="line">    @extend %twitter-background;</div><div class="line">  &#125;</div><div class="line">  &amp;--facebook &#123;</div><div class="line">    @extend %button;</div><div class="line">    @extend %facebook-background; </div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="sass-与媒体查询"><a href="#sass-与媒体查询" class="headerlink" title="sass 与媒体查询"></a>sass 与媒体查询</h1><p>通过@mixin 编写媒体查询语句<br><a href="https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/" target="_blank" rel="external">Mixin to Manage Breakpoints</a><br><a href="https://www.w3ctrain.com/2015/12/02/sass-media-query/" target="_blank" rel="external">使用Sass之更高级的媒体查询</a></p>
+<p><a href="https://davidwalsh.name/sass-media-query" target="_blank" rel="external">Write Simple, Elegant and Maintainable Media Queries with Sass</a><br><a href="https://medium.com/the-web-crunch-publication/sass-mixins-im-using-right-now-f88f39bfa5b5#.7pxwcqwbs" target="_blank" rel="external">SASS mixins I’m using right now</a></p>
+<p>通过以上链接，以及<br><a href="https://gold.xitu.io/post/57c6d8305bbb500063570662" target="_blank" rel="external">如何实现 font-size 的响应式</a></p>
+<p><strong>使用 编辑好的媒体查询语句 ,来编辑通过font-size的响应式。因为我们不希望，每次改变窗口, root 的font-size 的有变化，而是通过一个临界值来进行变化。</strong></p>
+<h2 id="通过-mixin-编写媒体查询语句"><a href="#通过-mixin-编写媒体查询语句" class="headerlink" title="通过@mixin 编写媒体查询语句"></a>通过@mixin 编写媒体查询语句</h2><p><strong>定义</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//定义好节点后</div><div class="line">$breakpoints: (</div><div class="line">  "sm" :  767px,</div><div class="line">  "md": 992px,</div><div class="line">  "lg":  1200px</div><div class="line">) !default;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">@mixin resp($breakpoint) &#123;</div><div class="line">  // If the key exists in the map</div><div class="line">  @if map-has-key($breakpoints, $breakpoint) &#123;</div><div class="line">    // Prints a media query based on the value</div><div class="line">    @media (max-width: map-get($breakpoints, $breakpoint)) &#123;</div><div class="line">      @content;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  // If the key doesn't exist in the map</div><div class="line">  @else &#123;</div><div class="line">    @warn "Unfortunately, no value could be retrieved from `#&#123;$breakpoint&#125;`. "</div><div class="line">        + "Available breakpoints are: #&#123;map-keys($breakpoints)&#125;.";</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>使用</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@import 'response/config.scss';</div><div class="line">body &#123;</div><div class="line"> </div><div class="line">    @include resp(md) &#123;</div><div class="line">        color: blue</div><div class="line">    &#125;</div><div class="line">   </div><div class="line">    @include resp(sma) &#123;</div><div class="line">        color: lawngreen;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="升级使用"><a href="#升级使用" class="headerlink" title="升级使用"></a>升级使用</h2><p>通过@mixin 虽然方便了，但配置起来也显得繁琐。</p>
+<blockquote>
+<p>Sass媒体查询应该是这样</p>
+<ol>
+<li>动态，可定义，可以随意增加断点</li>
+<li>简洁，自然的语法，可以使用 &lt;=,&gt;=, &gt;,&lt; 比如@include media(“&gt;minWidth”)</li>
+<li>自由组合，临时定义断点，可以组合多个断点，也可以临时自定义断点，比如@include media(“&gt;tablet”, “&lt;1280px”)</li>
+</ol>
+</blockquote>
+<p>请看<br>Eduardo Bouças和Hugo Giraudel的开源作品– <a href="http://include-media.com/" target="_blank" rel="external">include-media</a></p>
+<p>结合 <code>include-media</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">//config.scss</div><div class="line"></div><div class="line"></div><div class="line"> @mixin responsive($width) &#123;</div><div class="line">        @if $width==sm &#123;</div><div class="line">            @include media("&gt;phone", "&lt;=tablet") &#123;</div><div class="line">                @content;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        @else if $width==md &#123;</div><div class="line">            @include media("&gt;tablet", "&lt;=desktop") &#123;</div><div class="line">                @content;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        @else if $width==lg &#123;</div><div class="line">            @include media("&gt;desktop" ) &#123;</div><div class="line">                @content;</div><div class="line">            &#125;</div><div class="line">        &#125; </div><div class="line">        //@else &#123;</div><div class="line">        //@warn "Unfortunately, no value could be retrieved from `#&#123;$breakpoint&#125;`. "</div><div class="line">        //+ "Available breakpoints are: #&#123;map-keys($breakpoints)&#125;.";</div><div class="line">        //&#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">//index.scss</div><div class="line">@import 'response/include_media.scss';</div><div class="line">@import 'response/config.scss';</div><div class="line"></div><div class="line">body &#123;</div><div class="line">    @include responsive(sm)&#123;</div><div class="line">           color: blue</div><div class="line">    &#125;</div><div class="line">    @include responsive(md)&#123;</div><div class="line">           color: red</div><div class="line">    &#125;</div><div class="line">    @include responsive(lg)&#123;</div><div class="line">           color: lightyellow</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后生成</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">321px</span>) and (max-width: <span class="number">768px</span>) &#123;</div><div class="line">  <span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">color</span>: blue; &#125; &#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">769px</span>) and (max-width: <span class="number">1024px</span>) &#123;</div><div class="line">  <span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">color</span>: red; &#125; &#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">1025px</span>) &#123;</div><div class="line">  <span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">color</span>: lightyellow; &#125; &#125;</div></pre></td></tr></table></figure>
+
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/01/js-module/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/01/yarn/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = '/2017/01/sass-learn/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+<script src="https://cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+ <script>hljs.initHighlightingOnLoad();</script>
+ <script> console.log('haha')</script>
+</body>
+</html>

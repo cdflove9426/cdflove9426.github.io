@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>模块化开发-js | xiao啊菲-博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="js,module," />
+  
+
+  <meta name="description" content="你对本页的描述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化开发-js">
+<meta property="og:url" content="/2016/12/module-js/index.html">
+<meta property="og:site_name" content="xiao啊菲-博客">
+<meta property="og:description" content="你对本页的描述">
+<meta property="og:updated_time" content="2016-12-14T03:24:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模块化开发-js">
+<meta name="twitter:description" content="你对本页的描述">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">XX</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">XX</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#模块化开发"><span class="toc-text">模块化开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-module-js" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">模块化开发-js</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.12.13</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Cai</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.baidu.com/2016/12/module-js/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h1><p>模块化的话，首先看一下）<br><a href="https://youtu.be/HkFlM73G-hk?list=PLoYCgNOIyGABs-wDaaxChu82q_xQgUb4f" target="_blank" rel="external">这个系列视频（Modular JavaScript</a><br>了解怎么用原生JavaScript实现模块化</p>
+<p>然后可以看一下Addy Osmani关于模块化的这篇文章：<br><a href="https://addyosmani.com/writing-modular-js/" target="_blank" rel="external">Writing Modular JavaScript With AMD, CommonJS &amp; ES Harmony</a></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- peopelModel--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"peopleModule"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>People<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"addPerson"</span>&gt;</span>Add Person<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"people"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">"people-template"</span> <span class="attr">type</span>=<span class="string">"text/template"</span>&gt;</span><span class="xml"></span></div><div class="line">                &#123;&#123;#people&#125;&#125;</div><div class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;.&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"del"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                &#123;&#123;/people&#125;&#125;</div><div class="line">            <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!--end  peopelModel --&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> people = &#123;</div><div class="line">    <span class="attr">people</span>: [<span class="string">'Will'</span>, <span class="string">'Steve'</span>],</div><div class="line">    <span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.cacheDom();</div><div class="line">        <span class="keyword">this</span>.bindEvents();</div><div class="line">        <span class="keyword">this</span>.render();</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">cacheDom</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.$el = $(<span class="string">'#peopleModule'</span>);</div><div class="line">        <span class="keyword">this</span>.$button = <span class="keyword">this</span>.$el.find(<span class="string">'button'</span>);</div><div class="line">        <span class="keyword">this</span>.$input = <span class="keyword">this</span>.$el.find(<span class="string">'input'</span>);</div><div class="line">        <span class="keyword">this</span>.$ul = <span class="keyword">this</span>.$el.find(<span class="string">'ul'</span>);</div><div class="line">        <span class="keyword">this</span>.template = <span class="keyword">this</span>.$el.find(<span class="string">'#people-template'</span>).html();</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">bindEvents</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.$button.on(<span class="string">'click'</span>,  <span class="keyword">this</span>.addPerson.bind(<span class="keyword">this</span>));</div><div class="line">        <span class="keyword">this</span>.$ul.delegate(<span class="string">'i.del'</span>, <span class="string">'click'</span>, <span class="keyword">this</span>.deletePerson.bind(<span class="keyword">this</span>));</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="keyword">var</span> data = &#123;</div><div class="line">           <span class="attr">people</span>: <span class="keyword">this</span>.people,</div><div class="line">       &#125;;</div><div class="line">       <span class="keyword">this</span>.$ul.html(Mustache.render(<span class="keyword">this</span>.template, data));</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">addPerson</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> text = $.trim(<span class="keyword">this</span>.$input.val());</div><div class="line">        <span class="keyword">if</span> (text ==<span class="string">""</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"text"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.people.push(<span class="keyword">this</span>.$input.val());</div><div class="line">        <span class="keyword">this</span>.render();</div><div class="line">        <span class="keyword">this</span>.$input.val(<span class="string">''</span>);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">deletePerson</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> $remove = $(event.target).closest(<span class="string">'li'</span>);</div><div class="line">        <span class="keyword">var</span> i = <span class="keyword">this</span>.$ul.find(<span class="string">'li'</span>).index($remove);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.people.splice(i, <span class="number">1</span>);</div><div class="line">        <span class="keyword">this</span>.render();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line">people.init();</div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/12/template-mustache/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/12/webpack/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = '/2016/12/module-js/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+<script src="https://cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+ <script>hljs.initHighlightingOnLoad();</script>
+ <script> console.log('haha')</script>
+</body>
+</html>

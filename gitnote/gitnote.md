@@ -15,37 +15,17 @@
 ------------
 
 
-## 配置个人信息
-> git配置个人信息
-```bash
-git config user.name caidianfei  
-git config user.email caidianfei@163.com  
-```
-
-
-全局设置
-```bash
-git config --global user.name xiewendong  
-git config --global user.email android_ls@163.com  
-```
-
-## 本地配置git环境
-[win7下配置Git的环境变量](http://jingyan.baidu.com/article/fec4bce271601ff2618d8be3.html)
-
-
-
 ## 将本地项目提交到coding上托管
-
-
 Github仓库创建成功，然后开始上传项目了 
 在项目的根目录下执行以下命令：
 
-1、git init //初始化项目，执行完此命令后会生成一个.git文件夹 
-2、git add . //将本地项目所有文件添加到git管理，.指全部文件 
-3、git commit -m “提交描述" 
-4、git remote add origin 刚刚新建的Github地址 //将本地项目与远程git仓库关联 
-5、git push -u origin master //执行此命令如果出现错误，应该是README.md文件在本地项目中不存在从而导致冲突，我的一贯解决办法就是用这个命令git push -f origin master，强制将本地项目push到远程仓库。在平常的操作中，用这个强制的命令很可能会出现很多问题，建议不要用，不过此处是初始化项目，实用这个命令就不会有什么问题了。
+1. git init //初始化项目，执行完此命令后会生成一个.git文件夹 
+2. git add . //将本地项目所有文件添加到git管理，.指全部文件 
+3. git commit -m “提交描述" 
+4. git remote add origin 刚刚新建的Github地址 //将本地项目与远程git仓库关联 
+5. git push -u origin master //执行此命令如果出现错误，应该是README.md文件在本地项目中不存在从而导致冲突，我的一贯解决办法就是用这个命令git push -f origin master，强制将本地项目push到远程仓库。在平常的操作中，用这个强制的命令很可能会出现很多问题，建议不要用，不过此处是初始化项目，实用这个命令就不会有什么问题了。
  
+
 
 ## 生成SSH秘钥 公钥添加到github
 首先在本地创建ssh key；
@@ -62,12 +42,73 @@ Github仓库创建成功，然后开始上传项目了
 
 ## 同时管理多个ssh私钥
 [link](https://blog.csdn.net/zxt5105515/article/details/48007193)
+[同一台电脑关于多个SSH KEY管理](http://yijiebuyi.com/blog/f18d38eb7cfee860c117d629fdb16faf.html)
 
-首先，在新增私钥的时候，通过指定不同的文件名来生成不同的私钥文件
+
+
+### 新生成密钥
+在新增私钥的时候，通过 **指定不同的文件名来生成不同的私钥文件**
+
+设置路径,如果不设置默认生成 `id_rsa`  和  `id_rsa.pub`
+
+这种路径就生成 `id_rsa.github`  和  `id_rsa.github.pub`
+
+两种命名方式：`id_rsa_github` `id_rsa.github`
 
 ```bash
 ssh-keygen -t rsa -f ~/.ssh/id_rsa.work -C "Key for Work stuff"
 ssh-keygen -t rsa -f ~/.ssh/id_rsa.github -C "Key for GitHub stuff"
+```
+
+或者 跟着地址输入 一样的道理生成自定文件
+```bash
+ssh-keygen -t rsa 
+Enter file in which to save the key (/c/Users/xxx/.ssh/id_rsa): /c/Users/xxx/.ssh/id_rsa_github  
+```
+
+### 查看系统ssh-key代理,执行如下命令
+```bash
+$ ssh-add -l
+Could not open a connection to your authentication agent.
+# 如果发现上面的提示,说明系统代理里没有任何key,执行如下操作
+exec ssh-agent bash
+```
+
+如果系统已经有ssh-key 代理 ,执行下面的命令可以删除
+```bash
+$ ssh-add -D
+```
+
+### 把 .ssh 目录下的私钥添加的 ssh-agent
+
+$ ssh-add ~/.ssh/id_rsa_github
+$ ssh-add ~/.ssh/id_rsa_aaa
+$ ssh-add ~/.ssh/id_rsa_bbb
+依次执行把私钥添加到 ssh-key 代理里面
+
+### 打开github 或者 开源中国 ssh 管理页面把 对应的公钥提交保存到代码管理服务器 (.pub 结尾)
+
+### 在 .ssh 目录创建 config 配置文件
+```bash
+nano ~/.ssh/config
+```
+输入如下配置信息
+
+```yaml
+#aaa  (github 配置)
+Host aaa
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_aaa
+
+#bbb  (开源中国 配置)
+Host bbb
+    HostName git.oschina.net
+    User git
+    IdentityFile ~/.ssh/id_rsa_bbb
+
+#ccc
+........
 ```
 
 
@@ -89,6 +130,25 @@ Host github.com
 ```
 
 -------------
+
+## 配置个人信息
+> git配置个人信息
+```bash
+git config user.name caidianfei  
+git config user.email caidianfei@163.com  
+```
+
+
+全局设置
+```bash
+git config --global user.name xiewendong  
+git config --global user.email android_ls@163.com  
+```
+
+## 本地配置git环境
+[win7下配置Git的环境变量](http://jingyan.baidu.com/article/fec4bce271601ff2618d8be3.html)
+
+
 # 基本使用
 
 ## init

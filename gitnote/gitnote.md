@@ -108,6 +108,13 @@ Host bbb
     IdentityFile ~/.ssh/id_rsa_bbb
 
 #ccc
+
+
+
+Host hithub
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa_github
 ........
 ```
 

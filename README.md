@@ -1,8 +1,7 @@
 ---
 home: true
-<!-- navbar: false -->
-sidebar: auto
-sidebarDepth: 1
+# navbar: false
+# sidebarDepth: 1
 heroImage: /hero.png
 actionText: 起步 →
 actionLink: /guide/

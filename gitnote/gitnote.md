@@ -92,31 +92,7 @@ $ ssh-add ~/.ssh/id_rsa_bbb
 ```bash
 nano ~/.ssh/config
 ```
-输入如下配置信息
 
-```yaml
-#aaa  (github 配置)
-Host aaa
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_rsa_aaa
-
-#bbb  (开源中国 配置)
-Host bbb
-    HostName git.oschina.net
-    User git
-    IdentityFile ~/.ssh/id_rsa_bbb
-
-#ccc
-
-
-
-Host hithub
-	HostName github.com
-	User git
-	IdentityFile ~/.ssh/id_rsa_github
-........
-```
 
 
 新增ssh的配置文件，并修改权限
@@ -126,15 +102,22 @@ chmod 600 ~/.ssh/config
 ```
 
 修改config文件的内容
-```
+```yaml
+Host github.com  
+    IdentityFile ~/.ssh/id_rsa.github  
+    User git  
+
+......
+
 Host *.workdomain.com  
     IdentityFile ~/.ssh/id_rsa.work  
     User lee  
    
-Host github.com  
-    IdentityFile ~/.ssh/id_rsa.github  
-    User git  
+
+ 
 ```
+
+
 
 -------------
 

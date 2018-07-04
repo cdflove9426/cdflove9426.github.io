@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CaiCai9426 | webpack 设置代理</title>
+    <meta name="description" content="菲菲Blog,陆续更新中">
+    <link rel="icon" href="/logo.png">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/86.styles.1708be3a.css" as="style"><link rel="preload" href="/assets/js/app.fa713eac.js" as="script"><link rel="preload" href="/assets/js/8.6b00c1b6.js" as="script"><link rel="prefetch" href="/assets/js/38.8baf7629.js"><link rel="prefetch" href="/assets/js/0.c7a94944.js"><link rel="prefetch" href="/assets/js/1.75bc214a.js"><link rel="prefetch" href="/assets/js/2.4a593960.js"><link rel="prefetch" href="/assets/js/3.f69ab2b6.js"><link rel="prefetch" href="/assets/js/4.b6ef39fa.js"><link rel="prefetch" href="/assets/js/5.91f53b8d.js"><link rel="prefetch" href="/assets/js/6.7ab4526d.js"><link rel="prefetch" href="/assets/js/7.262318e7.js"><link rel="prefetch" href="/assets/js/9.49213d30.js"><link rel="prefetch" href="/assets/js/10.194074c7.js"><link rel="prefetch" href="/assets/js/11.28772604.js"><link rel="prefetch" href="/assets/js/12.473fa971.js"><link rel="prefetch" href="/assets/js/13.e7244ca3.js"><link rel="prefetch" href="/assets/js/14.9f35604a.js"><link rel="prefetch" href="/assets/js/15.92de29ce.js"><link rel="prefetch" href="/assets/js/16.5081d0f4.js"><link rel="prefetch" href="/assets/js/17.8d7bbf3a.js"><link rel="prefetch" href="/assets/js/18.8b379100.js"><link rel="prefetch" href="/assets/js/19.e6213855.js"><link rel="prefetch" href="/assets/js/20.09855c55.js"><link rel="prefetch" href="/assets/js/21.deccda74.js"><link rel="prefetch" href="/assets/js/22.c3da8c3e.js"><link rel="prefetch" href="/assets/js/23.0f2bdda6.js"><link rel="prefetch" href="/assets/js/24.23916d1d.js"><link rel="prefetch" href="/assets/js/25.4a28d9a1.js"><link rel="prefetch" href="/assets/js/26.638f323d.js"><link rel="prefetch" href="/assets/js/27.9104930e.js"><link rel="prefetch" href="/assets/js/28.f4a9d74b.js"><link rel="prefetch" href="/assets/js/29.a4ffc45d.js"><link rel="prefetch" href="/assets/js/30.34c1be94.js"><link rel="prefetch" href="/assets/js/31.fc4459e1.js"><link rel="prefetch" href="/assets/js/32.6fa53274.js"><link rel="prefetch" href="/assets/js/33.d39ccb38.js"><link rel="prefetch" href="/assets/js/34.95667869.js"><link rel="prefetch" href="/assets/js/35.1c9f7cb6.js"><link rel="prefetch" href="/assets/js/36.c527c4dc.js"><link rel="prefetch" href="/assets/js/37.91db206d.js"><link rel="prefetch" href="/assets/js/39.2b9663c2.js"><link rel="prefetch" href="/assets/js/40.4879e3dd.js"><link rel="prefetch" href="/assets/js/41.bd45403e.js"><link rel="prefetch" href="/assets/js/42.bab6410e.js"><link rel="prefetch" href="/assets/js/43.b6bad706.js"><link rel="prefetch" href="/assets/js/44.3ef4ed34.js"><link rel="prefetch" href="/assets/js/45.4eaec123.js"><link rel="prefetch" href="/assets/js/46.89dbff86.js"><link rel="prefetch" href="/assets/js/47.ec3a4eb4.js"><link rel="prefetch" href="/assets/js/48.1483f745.js"><link rel="prefetch" href="/assets/js/49.ed95d1ac.js"><link rel="prefetch" href="/assets/js/50.1969a022.js"><link rel="prefetch" href="/assets/js/51.8ba405ec.js"><link rel="prefetch" href="/assets/js/52.d10260ca.js"><link rel="prefetch" href="/assets/js/53.4521a8db.js"><link rel="prefetch" href="/assets/js/54.9ad871d9.js"><link rel="prefetch" href="/assets/js/55.58623269.js"><link rel="prefetch" href="/assets/js/56.543fae7f.js"><link rel="prefetch" href="/assets/js/57.c5d65fc9.js"><link rel="prefetch" href="/assets/js/58.04c7d745.js"><link rel="prefetch" href="/assets/js/59.b512423b.js"><link rel="prefetch" href="/assets/js/60.320eda07.js"><link rel="prefetch" href="/assets/js/61.5aae5d3f.js"><link rel="prefetch" href="/assets/js/62.9dfe9e13.js"><link rel="prefetch" href="/assets/js/63.25b34838.js"><link rel="prefetch" href="/assets/js/64.d12d5002.js"><link rel="prefetch" href="/assets/js/65.42b15a91.js"><link rel="prefetch" href="/assets/js/66.cfed3a8a.js"><link rel="prefetch" href="/assets/js/67.1a3b15e5.js"><link rel="prefetch" href="/assets/js/68.9868ce12.js"><link rel="prefetch" href="/assets/js/69.2903063c.js"><link rel="prefetch" href="/assets/js/70.9b5ebefd.js"><link rel="prefetch" href="/assets/js/71.4d376bf0.js"><link rel="prefetch" href="/assets/js/72.c26dd68c.js"><link rel="prefetch" href="/assets/js/73.0c199081.js"><link rel="prefetch" href="/assets/js/74.a575f917.js"><link rel="prefetch" href="/assets/js/75.3bb9db7f.js"><link rel="prefetch" href="/assets/js/76.77eed2ca.js"><link rel="prefetch" href="/assets/js/77.f9cdb120.js"><link rel="prefetch" href="/assets/js/78.81eb4ea8.js"><link rel="prefetch" href="/assets/js/79.bdfedc4c.js"><link rel="prefetch" href="/assets/js/80.80a3c0e7.js"><link rel="prefetch" href="/assets/js/81.1e44050b.js"><link rel="prefetch" href="/assets/js/82.6ac951ca.js"><link rel="prefetch" href="/assets/js/83.9eec4ec5.js"><link rel="prefetch" href="/assets/js/84.43236687.js"><link rel="prefetch" href="/assets/js/85.b06d6363.js">
+    <link rel="stylesheet" href="/assets/css/86.styles.1708be3a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      CaiCai9426
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/deploy/jenkins_cicl.html#jenkins" class="nav-link">blog</a></div><div class="nav-item"><a href="/project/" class="nav-link">项目</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/deploy/jenkins_cicl.html#jenkins" class="nav-link">blog</a></div><div class="nav-item"><a href="/project/" class="nav-link">项目</a></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>vue文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>部署</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>JS文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>gulp文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>git相关文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Webpack</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/webpack/code_splitting.html" class="sidebar-link">Code Splitting实现按需加载</a></li><li><a href="/webpack/CommonsChunkPlugin.html" class="sidebar-link">webpack CommonsChunkPlugin  </a></li><li><a href="/webpack/webpack-cache.html" class="sidebar-link">用 webpack 实现持久化缓存</a></li><li><a href="/webpack/webpack-debgu-mobile.html" class="sidebar-link">webpackp 添加移动端调试插件</a></li><li><a href="/webpack/webpack-eslint-loader.html" class="sidebar-link">eslint-loader</a></li><li><a href="/webpack/webpack.html" class="active sidebar-link">webpack 设置代理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/webpack/webpack.html#按照和使用" class="sidebar-link">按照和使用</a></li></ul></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>CSS</span><span class="arrow right"></span></p><!----></div></li></ul></div><div class="page"><div class="content"><h1 id="webpack-设置代理"><a href="#webpack-设置代理" aria-hidden="true" class="header-anchor">#</a> webpack 设置代理</h1><p><a href="https://webpack.js.org/configuration/dev-server/#devserver-proxy" target="_blank" rel="noopener noreferrer">webpack配置-devserver.proxy<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><div class="language-js extra-class"><pre class="language-js"><code>proxy<span class="token punctuation">:</span><span class="token punctuation">{</span>
+  <span class="token comment">// '/api/**': {</span>
+  <span class="token string">'/api'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            target<span class="token punctuation">:</span> <span class="token string">'http://localhost:8080'</span><span class="token punctuation">,</span> <span class="token comment">// 可以请求本地接口 也可以是线上接口</span>
+            <span class="token comment">//secure: false,      // 如果是https接口，需要配置这个参数</span>
+            changeOrigin<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>     <span class="token comment">// 如果接口跨域，需要进行这个参数配置</span>
+            pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              <span class="token string">'^/api'</span><span class="token punctuation">:</span> <span class="token string">''</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token string">'/api-dev/**'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">:</span> <span class="token string">'http://localhost:8080'</span><span class="token punctuation">,</span>
+        changeOrigin<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        secure<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">&quot;^/api-dev&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+如 请求<span class="token template-string"><span class="token string">`/api-dev/fileupload/123`</span></span>
+就会变成 请求 <span class="token template-string"><span class="token string">`/fileupload/123`</span></span>的接口
+<span class="token template-string"><span class="token string">`/fileupload/123`</span></span> 要在代理的服务其中可以接受访问。
+</code></pre></div><h1 id="性能优化-可视化查看webpack-打包后所有的依赖关系"><a href="#性能优化-可视化查看webpack-打包后所有的依赖关系" aria-hidden="true" class="header-anchor">#</a> 性能优化 - 可视化查看webpack 打包后所有的依赖关系</h1><p>查看 webpack 打包后所有组件与组件间的依赖关系，针对多余的包文件过大，剔除首次影响加载的效率问题进行剔除修改
+<img src="/assets/img/webpack-bundle-analyzer.9d5c5c84.png" alt="webpack-bundle-analyzer"></p><ul><li>能看到文件打包后的大小</li><li>还能预览到文件gzip后的大小 gzip 基本压缩一半</li></ul><h2 id="按照和使用"><a href="#按照和使用" aria-hidden="true" class="header-anchor">#</a> 按照和使用</h2><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev webpack-bundle-analyzer
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> BundleAnalyzerPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>BundleAnalyzerPlugin<span class="token punctuation">;</span>
+ 
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">BundleAnalyzerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+
+
+··············
+or
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>build<span class="token punctuation">.</span>bundleAnalyzerReport<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> BundleAnalyzerPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>BundleAnalyzerPlugin
+  webpackConfig<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BundleAnalyzerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>==BundleAnalyzerPlugin== 构造函数可以采用默认的可选配置对象：</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">new</span> <span class="token class-name">BundleAnalyzerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">//  可以是`server`，`static`或`disabled`。</span>
+  <span class="token comment">//  在`server`模式下，分析器将启动HTTP服务器来显示软件包报告。</span>
+  <span class="token comment">//  在“静态”模式下，会生成带有报告的单个HTML文件。</span>
+  <span class="token comment">//  在`disabled`模式下，你可以使用这个插件来将`generateStatsFile`设置为`true`来生成Webpack Stats JSON文件。</span>
+  analyzerMode<span class="token punctuation">:</span> <span class="token string">'server'</span><span class="token punctuation">,</span>
+  <span class="token comment">//  将在“服务器”模式下使用的主机启动HTTP服务器。</span>
+  analyzerHost<span class="token punctuation">:</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span>
+  <span class="token comment">//  将在“服务器”模式下使用的端口启动HTTP服务器。</span>
+  analyzerPort<span class="token punctuation">:</span> <span class="token number">8888</span><span class="token punctuation">,</span> 
+  <span class="token comment">//  路径捆绑，将在`static`模式下生成的报告文件。</span>
+  <span class="token comment">//  相对于捆绑输出目录。</span>
+  reportFilename<span class="token punctuation">:</span> <span class="token string">'report.html'</span><span class="token punctuation">,</span>
+  <span class="token comment">//  模块大小默认显示在报告中。</span>
+  <span class="token comment">//  应该是`stat`，`parsed`或者`gzip`中的一个。</span>
+  <span class="token comment">//  有关更多信息，请参见“定义”一节。</span>
+  defaultSizes<span class="token punctuation">:</span> <span class="token string">'parsed'</span><span class="token punctuation">,</span>
+  <span class="token comment">//  在默认浏览器中自动打开报告</span>
+  openAnalyzer<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">//  如果为true，则Webpack Stats JSON文件将在bundle输出目录中生成</span>
+  generateStatsFile<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+  <span class="token comment">//  如果`generateStatsFile`为`true`，将会生成Webpack Stats JSON文件的名字。</span>
+  <span class="token comment">//  相对于捆绑输出目录。</span>
+  statsFilename<span class="token punctuation">:</span> <span class="token string">'stats.json'</span><span class="token punctuation">,</span>
+  <span class="token comment">//  stats.toJson（）方法的选项。</span>
+  <span class="token comment">//  例如，您可以使用`source：false`选项排除统计文件中模块的来源。</span>
+  <span class="token comment">//  在这里查看更多选项：https：  //github.com/webpack/webpack/blob/webpack-1/lib/Stats.js#L21</span>
+  statsOptions<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  logLevel<span class="token punctuation">:</span> <span class="token string">'info'</span> 日志级别。可以是<span class="token string">'信息'</span>，<span class="token string">'警告'</span>，<span class="token string">'错误'</span>或<span class="token string">'沉默'</span>。
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+</code></pre></div><h1 id="vue-进行-gzip压缩和服务器如何开启gzip"><a href="#vue-进行-gzip压缩和服务器如何开启gzip" aria-hidden="true" class="header-anchor">#</a> vue 进行 gzip压缩和服务器如何开启gzip</h1><p>使用 <strong>vue-cli</strong>生成的项目，会自动配好相关的设置。
+config/index.js 中</p><div class="language-js extra-class"><pre class="language-js"><code>
+    <span class="token comment">// Gzip off by default as many popular static hosts such as</span>
+    <span class="token comment">// Surge or Netlify already gzip all static assets for you.</span>
+    <span class="token comment">// Before setting to `true`, make sure to:</span>
+    <span class="token comment">// npm install --save-dev compression-webpack-plugin</span>
+    productionGzip<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>  <span class="token comment">// 设置是否开启gizp</span>
+    productionGzipExtensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'js'</span><span class="token punctuation">,</span> <span class="token string">'css'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+</code></pre></div><p>build/webpack.prod.conf.js 中</p><div class="language-js extra-class"><pre class="language-js"><code>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>build<span class="token punctuation">.</span>productionGzip<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> CompressionWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'compression-webpack-plugin'</span><span class="token punctuation">)</span>
+
+  webpackConfig<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+    <span class="token keyword">new</span> <span class="token class-name">CompressionWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      asset<span class="token punctuation">:</span> <span class="token string">'[path].gz[query]'</span><span class="token punctuation">,</span>
+      algorithm<span class="token punctuation">:</span> <span class="token string">'gzip'</span><span class="token punctuation">,</span>
+      test<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span>
+        <span class="token string">'\\.('</span> <span class="token operator">+</span>
+        config<span class="token punctuation">.</span>build<span class="token punctuation">.</span>productionGzipExtensions<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+        <span class="token string">')$'</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      threshold<span class="token punctuation">:</span> <span class="token number">10240</span><span class="token punctuation">,</span>
+      minRatio<span class="token punctuation">:</span> <span class="token number">0.8</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="自动打开浏览器"><a href="#自动打开浏览器" aria-hidden="true" class="header-anchor">#</a> 自动打开浏览器</h1><p>npm 按照 <code>opn</code> 包。
+<a href="https://www.npmjs.com/package/opn" target="_blank" rel="noopener noreferrer">npm-opn<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><p><code>opn('http://sindresorhus.com');</code></p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> opn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'opn'</span><span class="token punctuation">)</span>
+<span class="token operator">...</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword">var</span> uri <span class="token operator">=</span> <span class="token string">'http://localhost:'</span> <span class="token operator">+</span> port
+
+  <span class="token comment">// when env is testing, don't need open it 当环境变量NODE_ENV是testing时，不需要打开它</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>autoOpenBrowser <span class="token operator">&amp;&amp;</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">!==</span> <span class="token string">'testing'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">opn</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>如果是手机端,访问<code>localhost:8080</code>访问不了，可以修改为带ip地址，通过node 获取</p><div class="language-js extra-class"><pre class="language-js"><code>
+<span class="token keyword">var</span> os<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> ifaces<span class="token operator">=</span>os<span class="token punctuation">.</span><span class="token function">networkInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> _IPs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> dev <span class="token keyword">in</span> ifaces<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ifaces<span class="token punctuation">[</span>dev<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>details<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>details<span class="token punctuation">.</span>family<span class="token operator">==</span><span class="token string">'IPv4'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// console.log(dev,details.address);</span>
+      _IPs<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>details<span class="token punctuation">.</span>address<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// console.log(_IPs);</span>
+
+
+<span class="token keyword">var</span> uri <span class="token operator">=</span> <span class="token string">'http://'</span><span class="token operator">+</span>_IPs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">&quot;:&quot;</span> <span class="token operator">+</span> port<span class="token punctuation">;</span>
+ <span class="token function">opn</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span>
+<span class="token template-string"><span class="token string">``</span></span>
+</code></pre></div></div><div class="content edit-link"><!----><!----></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/webpack/webpack-eslint-loader.html" class="prev">
+          eslint-loader
+        </a></span><span class="next"><a href="/css/animation.html">
+          css animation 动画
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/8.6b00c1b6.js" defer></script><script src="/assets/js/app.fa713eac.js" defer></script>
+  </body>
+</html>

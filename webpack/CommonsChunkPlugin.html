@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CaiCai9426 | webpack CommonsChunkPlugin  </title>
+    <meta name="description" content="菲菲Blog,陆续更新中">
+    <link rel="icon" href="/logo.png">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/86.styles.1708be3a.css" as="style"><link rel="preload" href="/assets/js/app.fa713eac.js" as="script"><link rel="preload" href="/assets/js/13.e7244ca3.js" as="script"><link rel="prefetch" href="/assets/js/38.8baf7629.js"><link rel="prefetch" href="/assets/js/0.c7a94944.js"><link rel="prefetch" href="/assets/js/1.75bc214a.js"><link rel="prefetch" href="/assets/js/2.4a593960.js"><link rel="prefetch" href="/assets/js/3.f69ab2b6.js"><link rel="prefetch" href="/assets/js/4.b6ef39fa.js"><link rel="prefetch" href="/assets/js/5.91f53b8d.js"><link rel="prefetch" href="/assets/js/6.7ab4526d.js"><link rel="prefetch" href="/assets/js/7.262318e7.js"><link rel="prefetch" href="/assets/js/8.6b00c1b6.js"><link rel="prefetch" href="/assets/js/9.49213d30.js"><link rel="prefetch" href="/assets/js/10.194074c7.js"><link rel="prefetch" href="/assets/js/11.28772604.js"><link rel="prefetch" href="/assets/js/12.473fa971.js"><link rel="prefetch" href="/assets/js/14.9f35604a.js"><link rel="prefetch" href="/assets/js/15.92de29ce.js"><link rel="prefetch" href="/assets/js/16.5081d0f4.js"><link rel="prefetch" href="/assets/js/17.8d7bbf3a.js"><link rel="prefetch" href="/assets/js/18.8b379100.js"><link rel="prefetch" href="/assets/js/19.e6213855.js"><link rel="prefetch" href="/assets/js/20.09855c55.js"><link rel="prefetch" href="/assets/js/21.deccda74.js"><link rel="prefetch" href="/assets/js/22.c3da8c3e.js"><link rel="prefetch" href="/assets/js/23.0f2bdda6.js"><link rel="prefetch" href="/assets/js/24.23916d1d.js"><link rel="prefetch" href="/assets/js/25.4a28d9a1.js"><link rel="prefetch" href="/assets/js/26.638f323d.js"><link rel="prefetch" href="/assets/js/27.9104930e.js"><link rel="prefetch" href="/assets/js/28.f4a9d74b.js"><link rel="prefetch" href="/assets/js/29.a4ffc45d.js"><link rel="prefetch" href="/assets/js/30.34c1be94.js"><link rel="prefetch" href="/assets/js/31.fc4459e1.js"><link rel="prefetch" href="/assets/js/32.6fa53274.js"><link rel="prefetch" href="/assets/js/33.d39ccb38.js"><link rel="prefetch" href="/assets/js/34.95667869.js"><link rel="prefetch" href="/assets/js/35.1c9f7cb6.js"><link rel="prefetch" href="/assets/js/36.c527c4dc.js"><link rel="prefetch" href="/assets/js/37.91db206d.js"><link rel="prefetch" href="/assets/js/39.2b9663c2.js"><link rel="prefetch" href="/assets/js/40.4879e3dd.js"><link rel="prefetch" href="/assets/js/41.bd45403e.js"><link rel="prefetch" href="/assets/js/42.bab6410e.js"><link rel="prefetch" href="/assets/js/43.b6bad706.js"><link rel="prefetch" href="/assets/js/44.3ef4ed34.js"><link rel="prefetch" href="/assets/js/45.4eaec123.js"><link rel="prefetch" href="/assets/js/46.89dbff86.js"><link rel="prefetch" href="/assets/js/47.ec3a4eb4.js"><link rel="prefetch" href="/assets/js/48.1483f745.js"><link rel="prefetch" href="/assets/js/49.ed95d1ac.js"><link rel="prefetch" href="/assets/js/50.1969a022.js"><link rel="prefetch" href="/assets/js/51.8ba405ec.js"><link rel="prefetch" href="/assets/js/52.d10260ca.js"><link rel="prefetch" href="/assets/js/53.4521a8db.js"><link rel="prefetch" href="/assets/js/54.9ad871d9.js"><link rel="prefetch" href="/assets/js/55.58623269.js"><link rel="prefetch" href="/assets/js/56.543fae7f.js"><link rel="prefetch" href="/assets/js/57.c5d65fc9.js"><link rel="prefetch" href="/assets/js/58.04c7d745.js"><link rel="prefetch" href="/assets/js/59.b512423b.js"><link rel="prefetch" href="/assets/js/60.320eda07.js"><link rel="prefetch" href="/assets/js/61.5aae5d3f.js"><link rel="prefetch" href="/assets/js/62.9dfe9e13.js"><link rel="prefetch" href="/assets/js/63.25b34838.js"><link rel="prefetch" href="/assets/js/64.d12d5002.js"><link rel="prefetch" href="/assets/js/65.42b15a91.js"><link rel="prefetch" href="/assets/js/66.cfed3a8a.js"><link rel="prefetch" href="/assets/js/67.1a3b15e5.js"><link rel="prefetch" href="/assets/js/68.9868ce12.js"><link rel="prefetch" href="/assets/js/69.2903063c.js"><link rel="prefetch" href="/assets/js/70.9b5ebefd.js"><link rel="prefetch" href="/assets/js/71.4d376bf0.js"><link rel="prefetch" href="/assets/js/72.c26dd68c.js"><link rel="prefetch" href="/assets/js/73.0c199081.js"><link rel="prefetch" href="/assets/js/74.a575f917.js"><link rel="prefetch" href="/assets/js/75.3bb9db7f.js"><link rel="prefetch" href="/assets/js/76.77eed2ca.js"><link rel="prefetch" href="/assets/js/77.f9cdb120.js"><link rel="prefetch" href="/assets/js/78.81eb4ea8.js"><link rel="prefetch" href="/assets/js/79.bdfedc4c.js"><link rel="prefetch" href="/assets/js/80.80a3c0e7.js"><link rel="prefetch" href="/assets/js/81.1e44050b.js"><link rel="prefetch" href="/assets/js/82.6ac951ca.js"><link rel="prefetch" href="/assets/js/83.9eec4ec5.js"><link rel="prefetch" href="/assets/js/84.43236687.js"><link rel="prefetch" href="/assets/js/85.b06d6363.js">
+    <link rel="stylesheet" href="/assets/css/86.styles.1708be3a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      CaiCai9426
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/deploy/jenkins_cicl.html#jenkins" class="nav-link">blog</a></div><div class="nav-item"><a href="/project/" class="nav-link">项目</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/deploy/jenkins_cicl.html#jenkins" class="nav-link">blog</a></div><div class="nav-item"><a href="/project/" class="nav-link">项目</a></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>vue文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>部署</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>JS文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>gulp文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>git相关文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Webpack</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/webpack/code_splitting.html" class="sidebar-link">Code Splitting实现按需加载</a></li><li><a href="/webpack/CommonsChunkPlugin.html" class="active sidebar-link">webpack CommonsChunkPlugin  </a></li><li><a href="/webpack/webpack-cache.html" class="sidebar-link">用 webpack 实现持久化缓存</a></li><li><a href="/webpack/webpack-debgu-mobile.html" class="sidebar-link">webpackp 添加移动端调试插件</a></li><li><a href="/webpack/webpack-eslint-loader.html" class="sidebar-link">eslint-loader</a></li><li><a href="/webpack/webpack.html" class="sidebar-link">webpack 设置代理</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>CSS</span><span class="arrow right"></span></p><!----></div></li></ul></div><div class="page"><div class="content"><h1 id="webpack-commonschunkplugin"><a href="#webpack-commonschunkplugin" aria-hidden="true" class="header-anchor">#</a> webpack CommonsChunkPlugin</h1><h1 id="commonschunkplugin-打包规则"><a href="#commonschunkplugin-打包规则" aria-hidden="true" class="header-anchor">#</a> CommonsChunkPlugin 打包规则</h1><p><a href="http://www.jianshu.com/p/ee372e344d6d" target="_blank" rel="noopener noreferrer">webpack CommonsChunkPlugin详细教程<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><p>webpack用插件CommonsChunkPlugin进行打包的时候，
+将<strong>符合引用次数(minChunks)的模块</strong>打包到name参数的数组的第一个块里（chunk）,
+然后数组后面的块依次打包(查找entry里的key,没有找到相关的key就生成一个空的块)，
+<strong>最后一个块包含webpack生成的在浏览器上使用各个块的加载代码</strong>，所以页面上使用的时候<strong>最后</strong>一个块必须<strong>最先加载</strong></p><h1 id="commonschunkplugin-的使用"><a href="#commonschunkplugin-的使用" aria-hidden="true" class="header-anchor">#</a> CommonsChunkPlugin 的使用</h1><p><strong>CommonsChunkPlugin 和web持久化缓存一起使用，效果杠杠的。</strong></p><p>在Webpack的配置中，我们可以通过CommonsChunkPlugin插件对指定的chunks进行公共模块的提取。我们指定好生成文件的名字，以及想抽取哪些入口js文件的公共代码，webpack就会自动帮我们合并好。:</p><div class="language- extra-class"><pre class="language-text"><code>var chunks = Object.keys(entries); 
+plugins: [ 
+    new webpack.optimize.CommonsChunkPlugin({ 
+        name: 'vendors', // 将公共模块提取，生成名为`vendors`的chunk 
+        chunks: chunks, 
+        minChunks: chunks.length // 提取所有entry共同依赖的模块 
+        }) 
+],
+</code></pre></div><h1 id="将公共业务模块与类库或框架分开打包"><a href="#将公共业务模块与类库或框架分开打包" aria-hidden="true" class="header-anchor">#</a> 将公共业务模块与类库或框架分开打包</h1><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> CommonsChunkPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;webpack/lib/optimize/CommonsChunkPlugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        main<span class="token punctuation">:</span> <span class="token string">'./main.js'</span><span class="token punctuation">,</span>
+        main1<span class="token punctuation">:</span> <span class="token string">'./main1.js'</span><span class="token punctuation">,</span>
+        common1<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'jquery'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        common2<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'vue'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> __dirname <span class="token operator">+</span> <span class="token string">'/dist'</span><span class="token punctuation">,</span>
+        filename<span class="token punctuation">:</span> <span class="token string">'[name].js'</span><span class="token comment">//不使用[name]，并且插件中没有filename，</span>
+        <span class="token comment">//这输出文件中只用chunk.js的内容，main.js的内容不知跑哪里去了</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;chunk&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;common1&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;common2&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">//页面上使用的时候common2</span>
+            <span class="token comment">//必须最先加载</span>
+            <span class="token comment">// filename:&quot;chunk.js&quot;//忽略则以name为输出文件的名字，</span>
+                <span class="token comment">//否则以此为输出文件名字</span>
+            minChunks<span class="token punctuation">:</span> <span class="token number">2</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><img src="http://upload-images.jianshu.io/upload_images/2125695-c393f6cb60aed289.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p><h1 id="参数minchunks-infinity"><a href="#参数minchunks-infinity" aria-hidden="true" class="header-anchor">#</a> 参数minChunks: Infinity</h1><p>看一下下面的配置会是什么结果</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> CommonsChunkPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;webpack/lib/optimize/CommonsChunkPlugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        main<span class="token punctuation">:</span> <span class="token string">'./main.js'</span><span class="token punctuation">,</span>
+        main1<span class="token punctuation">:</span> <span class="token string">'./main1.js'</span><span class="token punctuation">,</span>
+        jquery<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;jquery&quot;</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> __dirname <span class="token operator">+</span> <span class="token string">'/dist'</span><span class="token punctuation">,</span>
+        filename<span class="token punctuation">:</span> <span class="token string">'[name].js'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token string">&quot;jquery&quot;</span><span class="token punctuation">,</span>
+            minChunks<span class="token punctuation">:</span><span class="token number">2</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>main.js,main1.js共同引用的chunk1和chunk2会被打包到jquery.js里</p><p>但是如果修改为 minChunks：Infinity
+minChunks:2修改为minChunks:Infinity后，chunk1和chunk2都打包到main.js,main1.js里</p><h1 id="参数chunks"><a href="#参数chunks" aria-hidden="true" class="header-anchor">#</a> 参数chunks</h1><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> CommonsChunkPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;webpack/lib/optimize/CommonsChunkPlugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        main<span class="token punctuation">:</span> <span class="token string">'./main.js'</span><span class="token punctuation">,</span>
+        main1<span class="token punctuation">:</span> <span class="token string">'./main1.js'</span><span class="token punctuation">,</span>
+        jquery<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;jquery&quot;</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> __dirname <span class="token operator">+</span> <span class="token string">'/dist'</span><span class="token punctuation">,</span>
+        filename<span class="token punctuation">:</span> <span class="token string">'[name].js'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token string">&quot;jquery&quot;</span><span class="token punctuation">,</span>
+            minChunks<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span>
+            chunks<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;main&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;main1&quot;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>只有在main.js和main1.js中都引用的模块才会被打包的到公共模块（这里即jquery.js）
+也就是指打包main,main1 中的公共模块到jquery.js</p><h1 id="通过webapck-commonschunkplugin生成-mainfest实现持久化缓存"><a href="#通过webapck-commonschunkplugin生成-mainfest实现持久化缓存" aria-hidden="true" class="header-anchor">#</a> 通过webapck-CommonsChunkPlugin生成 mainfest实现持久化缓存</h1><p><a href="https://sebastianblade.com/using-webpack-to-achieve-long-term-cache/#webpackmd5hash" target="_blank" rel="noopener noreferrer">用 webpack 实现持久化缓存<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><p>过去我们使用webapck-CommonsChunkPlugin 提取公共模块，
+是希望能够将公共模块进行缓存，</p><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		app<span class="token punctuation">:</span> <span class="token string">'./app.js'</span><span class="token punctuation">,</span>
+		vendor<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'react'</span><span class="token punctuation">,</span> <span class="token string">'react-dom'</span><span class="token punctuation">,</span> <span class="token string">'moment'</span> <span class="token comment">/*等等其他的模块*/</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token comment">//其他配置</span>
+	plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+		<span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token string">'vendor'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>但发现vendor的hash在每次不管修改哪个文件后重新打包其实都在变化的</p><p>这里我们肯定遗漏了知识点，</p><blockquote><p>webpack用插件CommonsChunkPlugin进行打包的时候，
+将<strong>符合引用次数(minChunks)的模块</strong>打包到name参数的数组的第一个块里（chunk）,
+然后数组后面的块依次打包(查找entry里的key,没有找到相关的key就生成一个空的块)，
+<strong>最后一个块包含webpack生成的在浏览器上使用各个块的加载代码</strong>，所以页面上使用的时候<strong>最后</strong>一个块必须<strong>最先加载</strong></p></blockquote><p>也就是说，我们每次打包，及时公共模块没有修改，但是当修改其他模块，同时webpack生成的新的 <strong>各个模块的加载码添加到vendor文件</strong>，也就相当也verdor这个公共模块是有改变的，自然hash每次打包都不同了。</p><p><strong>解决办法就是 提取出每次都变化的 加载码（mainfest）</strong></p><p><a href="https://webpack.js.org/guides/caching/" target="_blank" rel="noopener noreferrer">webpack2 -Caching<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><p>中有讲述到持久化缓存的问题。</p><p>正如 文档<a href="https://webpack.js.org/guides/code-splitting-libraries/#manifest-file" target="_blank" rel="noopener noreferrer"># Manifest File - Code Splitting - Libraries<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中描述的那样，我们可以通过增加一个指定的公共 chunk 来提取 runtime，从而进一步实现持久化缓存：</p><div class="language-js extra-class"><pre class="language-js"><code>entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    libs<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token string">'es6-promise/auto'</span><span class="token punctuation">,</span>
+      <span class="token string">'whatwg-fetch'</span><span class="token punctuation">,</span>
+      <span class="token string">'vue'</span><span class="token punctuation">,</span>
+      <span class="token string">'vue-router'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    vendor<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">/*
+       * vendor 中均是非 npm 模块，
+       * 用 resolve.alias 修改路径，
+       * 避免冗长的相对路径。
+       */</span>
+      <span class="token string">'assets/libs/fastclick'</span><span class="token punctuation">,</span>
+      <span class="token string">'components/request'</span><span class="token punctuation">,</span>
+      <span class="token string">'components/ui'</span><span class="token punctuation">,</span>
+      <span class="token string">'components/bootstrap'</span> <span class="token comment">// 初始化脚本</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    page1<span class="token punctuation">:</span> <span class="token string">'src/pages/page1'</span><span class="token punctuation">,</span>
+    page2<span class="token punctuation">:</span> <span class="token string">'src/pages/page2'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>  
+  <span class="token comment">// 将 `manifest` 优先于 libs 进行提取，</span>
+  <span class="token comment">// 则可以将 webpack runtime 分离到这个块中。</span>
+  names<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'manifest'</span><span class="token punctuation">,</span> <span class="token string">'libs'</span><span class="token punctuation">,</span> <span class="token string">'vendor'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//注意这里使用了reverse()</span>
+  <span class="token comment">// manifest 只是个有意义的名字，也可以改成其他名字。</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这样在我们构建之后，就会多打包一个特别小（不足 2kb）的 manifest.js，
+解决了 libs 经常「被」更新的问题。</p><p>但是 manifest.js 实在是太小了，以至于不值得再为一个小 js 增加资源请求数量。</p><p><a href="https://github.com/numical/script-ext-html-webpack-plugin" target="_blank" rel="noopener noreferrer">script-ext-html-webpack-plugin<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><a href="https://webpack.js.org/guides/caching/#manifest-inlining" target="_blank" rel="noopener noreferrer">Manifest inlining<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><p>webpack每次build的时候都会生成一些运行时代码。当只有一个文件时，运行时代码直接塞到这个文件中。当有多个文件时，运行时代码会被提取到公共文件中，也就是楼主的vendor,为了阻止这种情况，我们需要将运行环境提取到一个单独的manifest文件里。及时我们创建了另一个bundle，但从长远来看，这种消耗比单独放在一个vendor中获得的收益要大</p><h1 id="注意"><a href="#注意" aria-hidden="true" class="header-anchor">#</a> 注意</h1><p>在提取 maninfest 的时候 ，不要使用 <code>new webpack.HotModuleReplacementPlugin(),</code>
+否则会出现错误</p><div class="language-bash extra-class"><pre class="language-bash"><code>Cannot use <span class="token punctuation">[</span>chunkhash<span class="token punctuation">]</span> <span class="token keyword">for</span> chunk <span class="token keyword">in</span> <span class="token string">'[name].[chunkhash].js'</span> <span class="token punctuation">(</span>use <span class="token punctuation">[</span>hash<span class="token punctuation">]</span> instead<span class="token punctuation">)</span>
+</code></pre></div><h1 id="webpack-内联css-js"><a href="#webpack-内联css-js" aria-hidden="true" class="header-anchor">#</a> webpack 内联css/js</h1><p><a href="https://juejin.im/post/587476168d6d810058a0a18a" target="_blank" rel="noopener noreferrer">[webpack] 如何把代码内联进html中？<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>
+上文将到的内联 Manifest</p></div><div class="content edit-link"><!----><!----></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/webpack/code_splitting.html" class="prev">
+          Code Splitting实现按需加载
+        </a></span><span class="next"><a href="/webpack/webpack-cache.html">
+          用 webpack 实现持久化缓存
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/13.e7244ca3.js" defer></script><script src="/assets/js/app.fa713eac.js" defer></script>
+  </body>
+</html>

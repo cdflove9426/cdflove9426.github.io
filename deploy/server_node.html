@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CaiCai9426 | 搭建node.js 生成环境</title>
+    <meta name="description" content="菲菲Blog,陆续更新中">
+    <link rel="icon" href="/logo.png">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/86.styles.1708be3a.css" as="style"><link rel="preload" href="/assets/js/app.fa713eac.js" as="script"><link rel="preload" href="/assets/js/74.a575f917.js" as="script"><link rel="prefetch" href="/assets/js/38.8baf7629.js"><link rel="prefetch" href="/assets/js/0.c7a94944.js"><link rel="prefetch" href="/assets/js/1.75bc214a.js"><link rel="prefetch" href="/assets/js/2.4a593960.js"><link rel="prefetch" href="/assets/js/3.f69ab2b6.js"><link rel="prefetch" href="/assets/js/4.b6ef39fa.js"><link rel="prefetch" href="/assets/js/5.91f53b8d.js"><link rel="prefetch" href="/assets/js/6.7ab4526d.js"><link rel="prefetch" href="/assets/js/7.262318e7.js"><link rel="prefetch" href="/assets/js/8.6b00c1b6.js"><link rel="prefetch" href="/assets/js/9.49213d30.js"><link rel="prefetch" href="/assets/js/10.194074c7.js"><link rel="prefetch" href="/assets/js/11.28772604.js"><link rel="prefetch" href="/assets/js/12.473fa971.js"><link rel="prefetch" href="/assets/js/13.e7244ca3.js"><link rel="prefetch" href="/assets/js/14.9f35604a.js"><link rel="prefetch" href="/assets/js/15.92de29ce.js"><link rel="prefetch" href="/assets/js/16.5081d0f4.js"><link rel="prefetch" href="/assets/js/17.8d7bbf3a.js"><link rel="prefetch" href="/assets/js/18.8b379100.js"><link rel="prefetch" href="/assets/js/19.e6213855.js"><link rel="prefetch" href="/assets/js/20.09855c55.js"><link rel="prefetch" href="/assets/js/21.deccda74.js"><link rel="prefetch" href="/assets/js/22.c3da8c3e.js"><link rel="prefetch" href="/assets/js/23.0f2bdda6.js"><link rel="prefetch" href="/assets/js/24.23916d1d.js"><link rel="prefetch" href="/assets/js/25.4a28d9a1.js"><link rel="prefetch" href="/assets/js/26.638f323d.js"><link rel="prefetch" href="/assets/js/27.9104930e.js"><link rel="prefetch" href="/assets/js/28.f4a9d74b.js"><link rel="prefetch" href="/assets/js/29.a4ffc45d.js"><link rel="prefetch" href="/assets/js/30.34c1be94.js"><link rel="prefetch" href="/assets/js/31.fc4459e1.js"><link rel="prefetch" href="/assets/js/32.6fa53274.js"><link rel="prefetch" href="/assets/js/33.d39ccb38.js"><link rel="prefetch" href="/assets/js/34.95667869.js"><link rel="prefetch" href="/assets/js/35.1c9f7cb6.js"><link rel="prefetch" href="/assets/js/36.c527c4dc.js"><link rel="prefetch" href="/assets/js/37.91db206d.js"><link rel="prefetch" href="/assets/js/39.2b9663c2.js"><link rel="prefetch" href="/assets/js/40.4879e3dd.js"><link rel="prefetch" href="/assets/js/41.bd45403e.js"><link rel="prefetch" href="/assets/js/42.bab6410e.js"><link rel="prefetch" href="/assets/js/43.b6bad706.js"><link rel="prefetch" href="/assets/js/44.3ef4ed34.js"><link rel="prefetch" href="/assets/js/45.4eaec123.js"><link rel="prefetch" href="/assets/js/46.89dbff86.js"><link rel="prefetch" href="/assets/js/47.ec3a4eb4.js"><link rel="prefetch" href="/assets/js/48.1483f745.js"><link rel="prefetch" href="/assets/js/49.ed95d1ac.js"><link rel="prefetch" href="/assets/js/50.1969a022.js"><link rel="prefetch" href="/assets/js/51.8ba405ec.js"><link rel="prefetch" href="/assets/js/52.d10260ca.js"><link rel="prefetch" href="/assets/js/53.4521a8db.js"><link rel="prefetch" href="/assets/js/54.9ad871d9.js"><link rel="prefetch" href="/assets/js/55.58623269.js"><link rel="prefetch" href="/assets/js/56.543fae7f.js"><link rel="prefetch" href="/assets/js/57.c5d65fc9.js"><link rel="prefetch" href="/assets/js/58.04c7d745.js"><link rel="prefetch" href="/assets/js/59.b512423b.js"><link rel="prefetch" href="/assets/js/60.320eda07.js"><link rel="prefetch" href="/assets/js/61.5aae5d3f.js"><link rel="prefetch" href="/assets/js/62.9dfe9e13.js"><link rel="prefetch" href="/assets/js/63.25b34838.js"><link rel="prefetch" href="/assets/js/64.d12d5002.js"><link rel="prefetch" href="/assets/js/65.42b15a91.js"><link rel="prefetch" href="/assets/js/66.cfed3a8a.js"><link rel="prefetch" href="/assets/js/67.1a3b15e5.js"><link rel="prefetch" href="/assets/js/68.9868ce12.js"><link rel="prefetch" href="/assets/js/69.2903063c.js"><link rel="prefetch" href="/assets/js/70.9b5ebefd.js"><link rel="prefetch" href="/assets/js/71.4d376bf0.js"><link rel="prefetch" href="/assets/js/72.c26dd68c.js"><link rel="prefetch" href="/assets/js/73.0c199081.js"><link rel="prefetch" href="/assets/js/75.3bb9db7f.js"><link rel="prefetch" href="/assets/js/76.77eed2ca.js"><link rel="prefetch" href="/assets/js/77.f9cdb120.js"><link rel="prefetch" href="/assets/js/78.81eb4ea8.js"><link rel="prefetch" href="/assets/js/79.bdfedc4c.js"><link rel="prefetch" href="/assets/js/80.80a3c0e7.js"><link rel="prefetch" href="/assets/js/81.1e44050b.js"><link rel="prefetch" href="/assets/js/82.6ac951ca.js"><link rel="prefetch" href="/assets/js/83.9eec4ec5.js"><link rel="prefetch" href="/assets/js/84.43236687.js"><link rel="prefetch" href="/assets/js/85.b06d6363.js">
+    <link rel="stylesheet" href="/assets/css/86.styles.1708be3a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      CaiCai9426
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/deploy/jenkins_cicl.html#jenkins" class="nav-link">blog</a></div><div class="nav-item"><a href="/project/" class="nav-link">项目</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/deploy/jenkins_cicl.html#jenkins" class="nav-link">blog</a></div><div class="nav-item"><a href="/project/" class="nav-link">项目</a></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>vue文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>部署</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/deploy/jenkins_cicl.html" class="sidebar-link">关于自动化部署-jenkins</a></li><li><a href="/deploy/nginx.html" class="sidebar-link">Nginx</a></li><li><a href="/deploy/pm2.html" class="sidebar-link">pm2 </a></li><li><a href="/deploy/server_node.html" class="active sidebar-link">搭建node.js 生成环境</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/deploy/server_node.html#安装，配置nodejs" class="sidebar-link">安装，配置nodejs</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#阿里云有默认的安全规则-有点像iptable的作用-限制了端口" class="sidebar-link">阿里云有默认的安全规则  有点像iptable的作用 限制了端口</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#linux-安装mongodb" class="sidebar-link">linux 安装Mongodb</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#开启服务" class="sidebar-link">开启服务</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#关闭服务" class="sidebar-link">关闭服务</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#修改mongodb默认端口" class="sidebar-link">修改mongodb默认端口</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#配置执行脚本" class="sidebar-link">配置执行脚本</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#执行脚本" class="sidebar-link">执行脚本</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#添加定时任务，定时执行备份" class="sidebar-link">添加定时任务，定时执行备份</a></li><li class="sidebar-sub-header"><a href="/deploy/server_node.html#上传备份到数据到七牛云" class="sidebar-link">上传备份到数据到七牛云</a></li></ul></li><li><a href="/deploy/ssh.html" class="sidebar-link">ssh 远程登陆服务器</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>JS文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>gulp文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>git相关文档</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Webpack</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>CSS</span><span class="arrow right"></span></p><!----></div></li></ul></div><div class="page"><div class="content"><h1 id="搭建node-js-生成环境"><a href="#搭建node-js-生成环境" aria-hidden="true" class="header-anchor">#</a> 搭建node.js 生成环境</h1><p>更新系统</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+</code></pre></div><p>一次性安装多个</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span>  vim openssl build-essential libssl-dev <span class="token function">wget</span> <span class="token function">curl</span> <span class="token function">git</span>
+</code></pre></div><h2 id="安装，配置nodejs"><a href="#安装，配置nodejs" aria-hidden="true" class="header-anchor">#</a> 安装，配置nodejs</h2><h3 id="先安装-nvm"><a href="#先安装-nvm" aria-hidden="true" class="header-anchor">#</a> 先安装 nvm</h3><p>linux 管理node 可以使用 [nvm]
+(https://github.com/creationix/nvm)</p><p>方便管理和升价node.js 版本</p><p><a href="https://github.com/creationix/nvm#install-script" target="_blank" rel="noopener noreferrer">安装指令<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</code></p><h3 id="通过nvm-安装制定版本的node-js"><a href="#通过nvm-安装制定版本的node-js" aria-hidden="true" class="header-anchor">#</a> 通过nvm 安装制定版本的node.js</h3><div class="language-shell extra-class"><pre class="language-shell"><code>nvm <span class="token function">install</span> v6.9.5
+nvm <span class="token function">install</span> v10.3.0
+<span class="token punctuation">..</span>.<span class="token comment">#安装。。。</span>
+
+
+nvm use v6.9.5
+nvm <span class="token function">alias</span> default v6.9.5
+
+node -v  <span class="token comment"># 查看版本</span>
+</code></pre></div><h3 id="淘宝镜像"><a href="#淘宝镜像" aria-hidden="true" class="header-anchor">#</a> 淘宝镜像</h3><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 更换为淘宝镜像</span>
+<span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> -g <span class="token function">npm</span>
+
+<span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> -g cnpm
+
+<span class="token comment">#系统文件监控数目</span>
+<span class="token keyword">echo</span> fs.inotify.max_user_watches<span class="token operator">=</span>525288 <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> -a /etc/sysctl.conf <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> sysctl -p
+</code></pre></div><h3 id="安装常用工具包"><a href="#安装常用工具包" aria-hidden="true" class="header-anchor">#</a> 安装常用工具包</h3><p>看需要吧
+<code>npm i pm2 webpack gulp grunt-cli -g</code></p><h1 id="阿里云遇到的问题收集"><a href="#阿里云遇到的问题收集" aria-hidden="true" class="header-anchor">#</a> 阿里云遇到的问题收集</h1><h2 id="阿里云有默认的安全规则-有点像iptable的作用-限制了端口"><a href="#阿里云有默认的安全规则-有点像iptable的作用-限制了端口" aria-hidden="true" class="header-anchor">#</a> 阿里云有默认的安全规则  有点像iptable的作用 限制了端口</h2><p><a href="https://blog.csdn.net/Abaneo/article/details/72853513" target="_blank" rel="noopener noreferrer">阿里云服务器端口不通的解决办法-安全组的问题<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><h2 id="linux-安装mongodb"><a href="#linux-安装mongodb" aria-hidden="true" class="header-anchor">#</a> linux 安装Mongodb</h2><p><a href="http://blog.51cto.com/superw/1943250" target="_blank" rel="noopener noreferrer">本地文件上传到Linux服务器的几种方法<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><p><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="noopener noreferrer">ubuntu  安装 Mongodb<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><p><strong>apt 安装不到？</strong>
+如果是在阿里云的服务器 ，有时候肯能安装包有问题，可能与阿里云的镜像有关系
+只要进入 apt.conf 文件 将镜像配置用<code>#</code>注释掉</p><div class="language- extra-class"><pre class="language-text"><code>sudo vi /etc/apt/apt.conf
+</code></pre></div><p><strong>安装数据源慢</strong>
+但这样在安装 mongodb源的时候就有点慢。。Ctrl-c 终止下载</p><p>在执行下列操作的时候， 其实就是在写入mongodb的源地地址 ，</p><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token keyword">echo</span> <span class="token string">&quot;deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.6 multiverse&quot;</span> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/apt/sources.list.d/mongodb-org-3.6.list
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>sudo vi /etc/apt/sources.list.d/mongodb-org-3.6.list 
+</code></pre></div><p>把里面的源强制修改为 阿里云下的服务器的源
+<code>https://repo.mongodb.org/apt.....</code> =&gt;<code>http://mirrors.aliyun.com/mongodb/apt</code></p><p>在更新源 <code>sudo apt-get update</code></p><p>安装<code>suod apt-get install -y mongodb-org</code></p><h2 id="开启服务"><a href="#开启服务" aria-hidden="true" class="header-anchor">#</a> 开启服务</h2><div class="language- extra-class"><pre class="language-text"><code>sudo service mongodb start
+
+cat /var/log/mongodb/mongod.log  # 查看日志文件  确认
+</code></pre></div><p><strong>注意防火墙是否会禁了mongodb服务端口</strong></p><p><a href="https://stackoverflow.com/questions/39343682/sudo-service-mongod-start-mongod-unrecognized-service" target="_blank" rel="noopener noreferrer">如果遇到这个问题<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><blockquote><p>sudo service mongod start : mongod: unrecognized service</p></blockquote><p>If already you install the mongodb just uninstall based on mongodb config
+Before going do all stuff first install mongodb server.
+<code>sudo apt install mongodb-server</code>
+Then continue to install what mongodb config suggest you.
+Once done your mongodb configuration you can go
+<code>sudo service mongodb start</code>
+Note: Its not mongod its mongodb</p><h2 id="关闭服务"><a href="#关闭服务" aria-hidden="true" class="header-anchor">#</a> 关闭服务</h2><div class="language- extra-class"><pre class="language-text"><code>sudo service mongodb stop
+</code></pre></div><h2 id="修改mongodb默认端口"><a href="#修改mongodb默认端口" aria-hidden="true" class="header-anchor">#</a> 修改mongodb默认端口</h2><p>修改了端口，也需要修改防火墙的配置
+<code>/etc/mongodb.conf</code> 文件</p><div class="language-shell extra-class"><pre class="language-shell"><code>net:
+    port: 27017  <span class="token comment"># 修改端口</span>
+</code></pre></div><h1 id="设置备份"><a href="#设置备份" aria-hidden="true" class="header-anchor">#</a> 设置备份</h1><p>为mongodb数据库实现定时备份 --通过写定时脚本的方便</p><h2 id="配置执行脚本"><a href="#配置执行脚本" aria-hidden="true" class="header-anchor">#</a> 配置执行脚本</h2><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">mkdir</span> backup 
+<span class="token function">cd</span> backup
+<span class="token function">mkdir</span> appname 
+
+
+
+<span class="token function">cd</span> 
+<span class="token function">mkdir</span> tasks  <span class="token comment"># 把脚本都写到一个文件 方便管理</span>
+<span class="token function">cd</span> tasks
+<span class="token function">vi</span> appname.backup.sh
+</code></pre></div><p>appname.backup.sh</p><div class="language-sh extra-class"><pre class="language-text"><code>#!/bin/sh
+
+backUpFolder = /home/cdf/backup/appname
+date_now=`data +%Y_%m_%d_%H%M`
+backFileName = appname_$data_now
+
+cd $backUpFolder  # 备份目录
+mkdir -p $backFileName 
+mongodump - h 127.0.0.1:19999 -d cc-datebase -u cc-backuper -p 123123123  -o $backFileName
+
+tar zcvf $backFileName.tar.gz $backFileName  # 压缩
+rm -rf $backFileName  # 去掉临时目录
+
+# 用户后面备份到七牛云
+# NODE_ENV = $backUpFolder@$backFileName   node/home/user/tasks/uploadQiNiu.js
+</code></pre></div><p>-d 数据库
+-u 用户名
+-p 密码
+-o 指定输出文件夹</p><h2 id="执行脚本"><a href="#执行脚本" aria-hidden="true" class="header-anchor">#</a> 执行脚本</h2><div class="language- extra-class"><pre class="language-text"><code>cd  # 到根目录
+sudo sh ./tasks/appname.backup.sh
+</code></pre></div><h2 id="添加定时任务，定时执行备份"><a href="#添加定时任务，定时执行备份" aria-hidden="true" class="header-anchor">#</a> 添加定时任务，定时执行备份</h2><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cd</span>
+<span class="token function">crontab</span> -e <span class="token comment"># 启动系统nano编辑器</span>
+</code></pre></div><div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># m h dom mon dow command</span>
+<span class="token comment">#凌晨十一分的时候 自动执行</span>
+11 00 * * * sh /home/user/tasks/appname.backup.sh
+<span class="token comment">#2点的时候 自动执行</span>
+00 2 * * * sh /home/user/tasks/appname.backup.sh
+<span class="token comment">#5点的时候 自动执行</span>
+00 5 * * * sh /home/user/tasks/appname.backup.sh
+</code></pre></div><h2 id="上传备份到数据到七牛云"><a href="#上传备份到数据到七牛云" aria-hidden="true" class="header-anchor">#</a> 上传备份到数据到七牛云</h2><p>可以查看七牛 <a href="https://developer.qiniu.com/sdk#official-sdk" target="_blank" rel="noopener noreferrer">SDK文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> -&gt;node.js</p><p><code>env</code>的参数 在xxx.backup.sh 文件中添加下面代码进传递</p><div class="language-shell extra-class"><pre class="language-shell"><code>NODE_ENV <span class="token operator">=</span> <span class="token variable">$backUpFolder@</span><span class="token variable">$backFileName</span>   node/home/user/tasks/uploadQiNiu.js
+</code></pre></div><p><strong>uploadQiNiu.js</strong></p><p>需要在同层目录下赞助 qiniu模块</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> qiniu
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> qiniu <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;qiniu&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> parts <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> file <span class="token operator">=</span> parts<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'.tar.gz'</span>
+<span class="token keyword">var</span> filePath <span class="token operator">=</span> parts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">'/'</span> <span class="token operator">+</span>file
+<span class="token comment">//需要填写你的 Access Key 和 Secret Key</span>
+qiniu<span class="token punctuation">.</span>conf<span class="token punctuation">.</span><span class="token constant">ACCESS_KEY</span> <span class="token operator">=</span> <span class="token string">'Access_Key'</span><span class="token punctuation">;</span>
+qiniu<span class="token punctuation">.</span>conf<span class="token punctuation">.</span><span class="token constant">SECRET_KEY</span> <span class="token operator">=</span> <span class="token string">'Secret_Key'</span><span class="token punctuation">;</span>
+<span class="token comment">//要上传的空间</span>
+bucket <span class="token operator">=</span> <span class="token string">'Bucket_Name'</span><span class="token punctuation">;</span>
+<span class="token comment">//上传到七牛后保存的文件名</span>
+key <span class="token operator">=</span> file<span class="token punctuation">;</span>
+<span class="token comment">//构建上传策略函数</span>
+<span class="token keyword">function</span> <span class="token function">uptoken</span><span class="token punctuation">(</span>bucket<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> putPolicy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">qiniu<span class="token punctuation">.</span>rs<span class="token punctuation">.</span>PutPolicy</span><span class="token punctuation">(</span>bucket<span class="token operator">+</span><span class="token string">&quot;:&quot;</span><span class="token operator">+</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> putPolicy<span class="token punctuation">.</span><span class="token function">token</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//生成上传 Token</span>
+token <span class="token operator">=</span> <span class="token function">uptoken</span><span class="token punctuation">(</span>bucket<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//要上传文件的本地路径</span>
+<span class="token comment">// filePath = './ruby-logo.png'</span>
+<span class="token comment">//构造上传函数</span>
+<span class="token keyword">function</span> <span class="token function">uploadFile</span><span class="token punctuation">(</span>uptoken<span class="token punctuation">,</span> key<span class="token punctuation">,</span> localFile<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> extra <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">qiniu<span class="token punctuation">.</span>io<span class="token punctuation">.</span>PutExtra</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    qiniu<span class="token punctuation">.</span>io<span class="token punctuation">.</span><span class="token function">putFile</span><span class="token punctuation">(</span>uptoken<span class="token punctuation">,</span> key<span class="token punctuation">,</span> localFile<span class="token punctuation">,</span> extra<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> ret<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 上传成功， 处理返回值</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ret<span class="token punctuation">.</span>hash<span class="token punctuation">,</span> ret<span class="token punctuation">.</span>key<span class="token punctuation">,</span> ret<span class="token punctuation">.</span>persistentId<span class="token punctuation">)</span><span class="token punctuation">;</span>       
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 上传失败， 处理返回代码</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//调用uploadFile上传</span>
+<span class="token function">uploadFile</span><span class="token punctuation">(</span>token<span class="token punctuation">,</span> key<span class="token punctuation">,</span> filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div><div class="content edit-link"><!----><!----></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/deploy/pm2.html" class="prev">
+          pm2 
+        </a></span><span class="next"><a href="/deploy/ssh.html">
+          ssh 远程登陆服务器
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/74.a575f917.js" defer></script><script src="/assets/js/app.fa713eac.js" defer></script>
+  </body>
+</html>

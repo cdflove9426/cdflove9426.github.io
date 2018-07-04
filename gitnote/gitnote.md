@@ -6,7 +6,7 @@
 
 [Mac系统Git生成ssh公钥](https://my.oschina.net/u/2340880/blog/658594)
 
-#Git-将已有的项目提交到Git
+## Git-将已有的项目提交到Git
 [Git-将已有的项目提交到Git](http://www.w3cfuns.com/notes/16795/155b7454fed1074c7b45d657efb78db0.html)
 
 [Coding 初级教程（二）——上传已有项目](http://www.cnblogs.com/caicaizi/p/5871062.html)
@@ -23,8 +23,12 @@ Github仓库创建成功，然后开始上传项目了
 2. git add . //将本地项目所有文件添加到git管理，.指全部文件 
 3. git commit -m “提交描述" 
 4. git remote add origin 刚刚新建的Github地址 //将本地项目与远程git仓库关联 
-5. git push -u origin master //执行此命令如果出现错误，应该是README.md文件在本地项目中不存在从而导致冲突，我的一贯解决办法就是用这个命令git push -f origin master，强制将本地项目push到远程仓库。在平常的操作中，用这个强制的命令很可能会出现很多问题，建议不要用，不过此处是初始化项目，实用这个命令就不会有什么问题了。
+5. git push -u origin master //执行此命令如果出现错误，应该是README.md文件在本地项目中不存在从而导致冲突，我的一贯解决办法就是用这个命令git push -f origin master，强制将本地项目push到远程仓库。在平常的操作中，用这个强制的命令很可能会出现很多问题，建议不要用，不过此处是初始化项目，用这个命令就不会有什么问题了。
  
+如果出现问题 又不想强制更新上远程仓库
+6. git fetch
+7. git merge origin/master 进行合并  （!wq 保存退出）
+8. git push -u origin master
 
 
 ## 生成SSH秘钥 公钥添加到github
@@ -44,8 +48,6 @@ Github仓库创建成功，然后开始上传项目了
 [link](https://blog.csdn.net/zxt5105515/article/details/48007193)
 [同一台电脑关于多个SSH KEY管理](http://yijiebuyi.com/blog/f18d38eb7cfee860c117d629fdb16faf.html)
 
-
-
 ### 新生成密钥
 在新增私钥的时候，通过 **指定不同的文件名来生成不同的私钥文件**
 
@@ -57,7 +59,7 @@ Github仓库创建成功，然后开始上传项目了
 
 ```bash
 ssh-keygen -t rsa -f ~/.ssh/id_rsa.work -C "Key for Work stuff"
-ssh-keygen -t rsa -f ~/.ssh/id_rsa.github -C "Key for GitHub stuff"
+ssh-keygen -t rsa -f ~/.ssh/id_rsa.github -C "Key for GitHub stuff github账号"
 ```
 
 或者 跟着地址输入 一样的道理生成自定文件
@@ -80,10 +82,11 @@ $ ssh-add -D
 ```
 
 ### 把 .ssh 目录下的私钥添加的 ssh-agent
-
+```bash
 $ ssh-add ~/.ssh/id_rsa_github
 $ ssh-add ~/.ssh/id_rsa_aaa
 $ ssh-add ~/.ssh/id_rsa_bbb
+```
 依次执行把私钥添加到 ssh-key 代理里面
 
 ### 打开github 或者 开源中国 ssh 管理页面把 对应的公钥提交保存到代码管理服务器 (.pub 结尾)
@@ -112,11 +115,23 @@ Host github.com
 Host *.workdomain.com  
     IdentityFile ~/.ssh/id_rsa.work  
     User lee  
-   
-
  
 ```
 
+当有多个ssh密钥需要管理时，一定要修改config文件的权限，否则你配置后仍然时无效的
+
+~/.ssh/config文件的内容为：
+```yaml
+Host github.com
+IdentityFile ~/.ssh/id_rsa.github
+User git
+
+Host git.coding.net
+IdentityFile ~/.ssh/id_rsa.coding
+User git
+```
+
+Host就是你的git仓库的域名或者IP。
 
 
 -------------

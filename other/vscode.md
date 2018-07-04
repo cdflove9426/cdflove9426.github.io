@@ -1,5 +1,8 @@
 # VSCode
 
+amVim
+
+
 ## 配置同步
 
 使用 sync 插件同步配置

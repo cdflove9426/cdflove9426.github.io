@@ -53,33 +53,46 @@ module.exports = {
       ],
   themeConfig: {
     nav: [
+      // {
+      //   text: 'Home',
+      //   link: '/',
+      //   items: [
+      //     {
+      //       text: 'vue',
+      //       link: '/gulp/',
+      //     },
+      //     // {
+      //     //   text: 'Vue',
+      //     //   items: [{
+      //     //       text: 'Chinese',
+      //     //       link: '/source/gulp/build-bushu',
+      //     //     },
+      //     //   ]
+      //     // }
+      //   ]
+      // },
       {
-        text: 'Home',
-        link: '/',
-        items: [
-          {
-            text: 'vue',
-            link: '/gulp/',
-          },
-          // {
-          //   text: 'Vue',
-          //   items: [{
-          //       text: 'Chinese',
-          //       link: '/source/gulp/build-bushu',
-          //     },
-          //   ]
-          // }
-        ]
+        text: 'blog',
+        link: '/deploy/jenkins_cicl.html#jenkins'
       },
       {
-        text: 'Guide',
-        link: '/guide/'
-      }
+        text: '项目',
+        link: '/project/'
+      },
+      // {
+      //   text: '关于我',
+      //   link: '/feifei/'
+      // }
     ],
     sidebar: [
-      gensildbarCf('gulp', 'gulp文档'),
       gensildbarCf('vue', 'vue文档'),
+      gensildbarCf('deploy', '部署'),
+      gensildbarCf('js', 'JS文档'),
+      gensildbarCf('gulp', 'gulp文档'),
       gensildbarCf('gitnote', 'git相关文档'),
+      gensildbarCf('webpack', 'Webpack'),
+      // gensildbarCf('weinxin', '微信'),
+      gensildbarCf('css', 'CSS'),
       // gensildbarCf('guide', 'guide文档'),
     ]
   }

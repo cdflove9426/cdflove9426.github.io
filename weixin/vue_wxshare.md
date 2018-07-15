@@ -123,3 +123,129 @@ wx.ready(function () {
  
 let url = window.location.href.split('#')[0];
 ```
+
+
+
+# 通过vue-router 进行全局分析配置
+```js
+// wxShare.js
+import Vue from 'vue'
+
+// 在组件外使用vux集成的微信jssdk
+import { WechatPlugin, AjaxPlugin } from 'vux'
+
+Vue.use(WechatPlugin)
+Vue.use(AjaxPlugin)  //这个是vux 封装的axios 
+
+
+export default function wxShare ({title, desc, link, imgUrl} = {}) {
+    Vue.wechat.config({
+      debug: false,
+      appId: appId,
+      timestamp: timestamp,
+      nonceStr: nonceStr,
+      signature: signature,
+      jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline']
+    })
+    Vue.wechat.ready(() => {
+      Vue.wechat.onMenuShareAppMessage({
+        title: title, // 分享标题
+        desc: desc || '默认分享文案', // 分享描述
+        link: link || window.location.href, // 分享链接
+        imgUrl: imgUrl || '图标地址（必须是有效的Link）' // 分享图标
+      })
+      Vue.wechat.onMenuShareTimeline({
+        title:  desc || '默认分享文案', 
+        link: link || window.location.href, // 分享链接
+        imgUrl: imgUrl || '图标地址（必须是有效的Link）' // 分享图标
+      })
+    })
+    Vue.wechat.error((res) => {
+    })
+}
+
+// 为Vue的原型对象添加该方法，则所有vue实例都能继承该方法
+// Vue.prototype.$wxShare = wxShare
+
+```
+
+
+在router -》meta 中进行设置分享
+```js
+// router.js 每个模块都有自己内部的路由配置
+const routes = [
+    {
+        path: '/index',
+        name: 'index',
+        redirect: '/index/homepage',
+        children: [
+          {
+            path: '/index/homepage',
+            name: 'homepage',
+            component: homepage
+            meta: { 
+                wxshare:{
+                  title: '分享标题', 
+                  desc: 'desc',
+                  // link:'http://baidu.com',
+                  imgUrl: 'http://baidu.com/png/123123.png'
+                }
+            }
+          },
+        ]
+      }
+]
+
+
+```
+```js
+
+// routerRule，公共路由配置，所有模块共用一个路由控制策略
+
+import wxShare from '@/utils/wxShare'
+
+export default function routerRule (router) {
+   
+    router.afterEach(( to, from ) => {
+      if(to.meta&&to.meta.wxshare){
+          wxShare({ title: to.meta.title, desc: to.meta.desc, link: to.meta.shareLink, logo: to.meta.imgUrl})
+      }
+    })
+
+}
+```
+
+
+
+## 根据业务逻辑设置的分享内容
+```js
+// homepage.vue
+
+<script>
+
+export default {
+
+    created() {
+        getHomepageInfo()
+            .then( res => {
+                this.$wxShare({
+                    title: `user.name要请您一起来${res.title}`,
+                    desc: res.desc,
+                    imgUrl: res.logo
+                })
+            } )
+    }
+}
+
+</script>
+```
+
+
+
+如果项目采用非history模式，则需要去掉url上#后的部分传给后端换取微信签名。
+根据微信官方说明：
+> 所有需要使用JS-SDK的页面必须先注入配置信息，否则将无法调用（同一个url仅需调用一次，对于变化url的SPA的web app可在每次url变化时进行调用…
+由于SPA应用，url变化之后，需要重新config一次，重新注入当前页面的配置信息，因此这个步骤必须在router.afterEach中调用！因为根据vue-router的说明，在导航被确认之后，再调用全局的afterEach钩子，这个时候导航已经确认了，url已经改变，可以针对更新后的url重新获取微信签名了。
+
+每一次跳转url变化都都需要重新获得签名,这个每次都去请求后端获得新url相互匹配的签名。
+感觉有点麻烦，但暂时没有其他办法。。

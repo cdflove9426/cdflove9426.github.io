@@ -17,6 +17,23 @@ features:
 # footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 
+
+现在个人主要技术栈包括 :`Vue、webpack、axios、Vuex、Vue-Router`
+
+后台开发UI框架较多使用 :**Element-Ui**
+
+- 熟练使用  `HTML5、CSS3` 进行页面的制作，响应式布局，实现页面动画。
+- `Jquery,zepto`   等第三方JS框架，能独立进行前端交互应用开发。
+- `ES6`   语法，并了解其新特性。
+- `gulp, webpack`   自动化开发工具。
+- `Sass,Stylus`   前端预处理工具。
+- 使用   `Git`   工具来进行协同工作。
+- 使用  `Jenkins`  实现项目的自动化集成、部署
+- `Node.js`  的基本使用，配合使用于前端自动化构建与开发。
+- 使用  `Mock.js`  进行数据模拟。
+- 使用  `ESLint`  进行代码规范。
+- 了解 ** `AngularJS2`以及`Typescript`。
+
 <!-- 
 ### 起步就像数 1, 2, 3 一样容易
 

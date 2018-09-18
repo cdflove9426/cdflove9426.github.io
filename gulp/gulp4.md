@@ -3,7 +3,7 @@
 
 # gulp4的基础使用
 [gulp API](https://github.com/gulpjs/gulp/blob/master/docs/API.md)
-[github gulp4文档](https://github.com/gulpjs/gulp/blob/4.0/docs/API.md)
+[github gulp4 api文档](https://github.com/gulpjs/gulp/blob/4.0/docs/API.md)
 [【译】相对完整的Gulp4升级指南](https://segmentfault.com/a/1190000005357048)
 
 ##watch方法路径不要用 './xx'

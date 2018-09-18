@@ -103,3 +103,78 @@ Here is the gif of the complete process when you execute the Download command (M
 
 
 GitHub Gist: 102c28923e722af04b2ec1a66ed24141
+
+
+
+---------------
+## 设置终端
+[如何将VS Code 和 Cmder 整合](https://blog.csdn.net/leonhe27/article/details/81210000)
+[【使用教程】CMDer，Window下CMD的替代者](http://www.mamicode.com/info-detail-2180882.html)
+
+默认termail 改成cmder
+```
+"terminal.integrated.env.windows": {"CMDER_ROOT": "[cmder_root]"},
+"terminal.integrated.shellArgs.windows": ["/k", "[cmder_root]\\vendor\\init.bat"],
+```
+
+修改环境变量
+变量名 CMDER_HOME
+变量值 CMDER解压包的绝对路径
+
+PATH里面添加%CMDER_HOME%
+
+cmd中执行 ： `Cmder.exe /REGISTER ALL`
+
+-----------------
+alias别名
+
+```
+set PATH=%ConEmuBaseDir%\Scripts;%PATH%
+set LANG=zh_CN.UTF-8
+ls=ls --show-control-chars -F
+alias ll=ls -al --show-control-chars --color $*
+alias gs=git status
+alias gl=git log
+alias ga=git add
+alias gc=git commit
+pwd=cd
+clear=cls
+```
+
+这样就可以在CMDER中使用gl来代替git log等了
+---------------
+
+**解决中文乱码**
+在设置中修改 startup->  Environment
+set LANG=zh_CN.UTF-8 解决中文乱码问题
+
+可以利用Tab，自动路径补全(爽,赞！)；
+可以利用Ctrl+T建立新页签；
+利用Ctrl+W关闭页签;
+还可以透过Ctrl+Tab切换页签;
+Alt+F4：关闭所有页签
+Alt+Shift+1：开启cmd.exe
+Alt+Shift+2：开启powershell.exe
+Alt+Shift+3：开启powershell.exe (系统管理员权限)
+Ctrl+1：快速切换到第1个页签
+Ctrl+n：快速切换到第n个页签( n值无上限)
+Alt + enter： 切换到全屏状态；
+Ctr+r 历史命令搜索;
+End, Home, Ctrl : Traversing text with as usual on Windows
+
+
+
+
+# vscode 识别提别的标准 如@，vue开发中也很好用
+[jsconfig](https://code.visualstudio.com/docs/languages/jsconfig)
+根目录下产创建 `jsconfig.json`
+```
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+```

@@ -1,106 +1,132 @@
-# axios 
+# axios
 
 ## 安装
-利用npm安装`npm install axios --save`
+
+利用 npm 安装`npm install axios --save`
 
 ## 简单使用
+
 ** Get**
+
 ```js
 //通过给定的ID来发送请求
-axios.get('/user?ID=12345')
-  .then(function(response){
+axios
+  .get('/user?ID=12345')
+  .then(function(response) {
     console.log(response);
   })
-  .catch(function(err){
+  .catch(function(err) {
     console.log(err);
   });
 
 //以上请求等效于
-axios.get('/user',{
-  params:{
-    ID:12345
-  }
-})
-.then(function(response){
-  console.log(response);
-})
-.catch(function(err){
-  console.log(err);
-});
-
+axios
+  .get('/user', {
+    params: {
+      ID: 12345,
+    },
+  })
+  .then(function(response) {
+    console.log(response);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
 ```
 
 **post**
-```js
-axios.post('/user',{
-  firstName:'Fred',
-  lastName:'Flintstone'
-})
-.then(function(res){
-  console.log(res);
-})
-.catch(function(err){
-  console.log(err);
-});
 
+```js
+axios
+  .post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone',
+  })
+  .then(function(res) {
+    console.log(res);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
 ```
 
 **一次性并发多个请求**
+
 ```js
-function getUserAccount(){
+function getUserAccount() {
   return axios.get('/user/12345');
 }
-function getUserPermissions(){
+function getUserPermissions() {
   return axios.get('/user/12345/permissions');
 }
-axios.all([getUserAccount(),getUserPermissions()])
-  .then(axios.spread(function(acct,perms){
+axios.all([getUserAccount(), getUserPermissions()]).then(
+  axios.spread(function(acct, perms) {
     //当这两个请求都完成的时候会触发这个函数，两个参数分别代表返回的结果
-  }))
-
+  })
+);
 ```
 
-
 ## 通过配置来发送请求
-``` js
+
+```js
 // Send a POST request
 axios({
   method: 'post',
   url: '/user/12345',
   data: {
     firstName: 'Fred',
-    lastName: 'Flintstone'
-  }
+    lastName: 'Flintstone',
+  },
 });
 // GET request for remote image
 axios({
-  method:'get',
-  url:'http://bit.ly/2mTM3nY',
-  responseType:'stream'
-})
-  .then(function(response) {
-  response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+  method: 'get',
+  url: 'http://bit.ly/2mTM3nY',
+  responseType: 'stream',
+}).then(function(response) {
+  response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'));
 });
 ```
+
 ## 并发请求（concurrency）,即是帮助处理并发请求的辅助函数
+
 ```js
 //iterable是一个可以迭代的参数如数组等
-axios.all(iterable)
+axios.all(iterable);
 //callback要等到所有请求都完成才会执行
-axios.spread(callback)
+axios.spread(callback);
 ```
 
+执行多个并发请求
 
-## 创建一个axios实例，并且可以自定义其配置
+```js
+function getUserAccount() {
+  return axios.get('/user/12345');
+}
+
+function getUserPermissions() {
+  return axios.get('/user/12345/permissions');
+}
+
+axios.all([getUserAccount(), getUserPermissions()]).then(
+  axios.spread(function(acct, perms) {
+    // 两个请求现在都执行完成
+  })
+);
+```
+
+## 创建一个 axios 实例，并且可以自定义其配置
+
 ```js
 var instance = axios.create({
-  baseURL:"https://some-domain.com/api/",
-  timeout:1000,
-  headers: {'X-Custom-Header':'foobar'}
+  baseURL: 'https://some-domain.com/api/',
+  timeout: 1000,
+  headers: { 'X-Custom-Header': 'foobar' },
 });
 ```
 
 # 配置
+
 ```js
 {
   //`url`是请求的服务器地址
@@ -148,7 +174,7 @@ var instance = axios.create({
 
   timeout:1000,
   //`withCredentails`选项表明了是否是跨域请求
-  
+
   withCredentials:false,//default
   //`adapter`适配器选项允许自定义处理请求，这会使得测试变得方便
   //返回一个promise,并提供验证返回
@@ -204,28 +230,29 @@ onDownloadProgress:function(progressEvent){
   })
 }
 
- 
+
 ```
 
-## 请求返回的内容
+## 请求响应结构
+
 ```js
 {
   // `data` is the response that was provided by the server
   data: {},
- 
+
   // `status` is the HTTP status code from the server response
   status: 200,
- 
+
   // `statusText` is the HTTP status message from the server response
   statusText: 'OK',
- 
+
   // `headers` the headers that the server responded with
   // All header names are lower cased
   headers: {},
- 
+
   // `config` is the config that was provided to `axios` for the request
   config: {},
- 
+
   // `request` is the request that generated this response
   // It is the last ClientRequest instance in node.js (in redirects)
   // and an XMLHttpRequest instance the browser
@@ -243,30 +270,33 @@ axios.get('/user/12345')
   })
 ```
 
-
 ## 默认配置
 
 你可以设置默认配置，对所有请求都有效
 1、 全局默认配置
+
 ```js
 axios.defaults.baseURL = 'http://api.exmple.com';
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['content-Type'] = 'appliction/x-www-form-urlencoded';
+axios.defaults.headers.post['content-Type'] =
+  'appliction/x-www-form-urlencoded';
 ```
 
 2、 自定义的实例默认设置
+
 ```js
 //当创建实例的时候配置默认配置
 var instance = axios.create({
-    baseURL: 'https://api.example.com'
+  baseURL: 'https://api.example.com',
 });
 
 //当实例创建时候修改配置
-instance.defaults.headers.common["Authorization"] = AUTH_TOKEN;
+instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 ```
 
 3、 配置中的有优先级
-config配置将会以优先级别来合并，顺序是lib/defauts.js中的默认配置，然后是实例中的默认配置，最后是请求中的config参数的配置，越往后等级越高，后面的会覆盖前面的例子。
+config 配置将会以优先级别来合并，顺序是 lib/defauts.js 中的默认配置，然后是实例中的默认配置，最后是请求中的 config 参数的配置，越往后等级越高，后面的会覆盖前面的例子。
+
 ```js
 //创建一个实例的时候会使用libray目录中的默认配置
 //在这里timeout配置的值为0，来自于libray的默认值
@@ -275,112 +305,126 @@ var instance = axios.create();
 //现在所有的请求都要等2.5S之后才会发出
 instance.defaults.timeout = 2500;
 //这里的timeout回覆盖之前的2.5S变成5s
-instance.get('/longRequest',{
-  timeout: 5000
+instance.get('/longRequest', {
+  timeout: 5000,
 });
-
 ```
 
-
 ## 拦截器
-你可以在请求、响应在到达then/catch之前拦截他们
+
+你可以在请求、响应在到达 then/catch 之前拦截他们
 
 ```js
 //添加一个请求拦截器
-axios.interceptors.request.use(function(config){
-  //在请求发出之前进行一些操作
-  return config;
-},function(err){
-  //Do something with request error
-  return Promise.reject(error);
-});
+axios.interceptors.request.use(
+  function(config) {
+    //在请求发出之前进行一些操作
+    return config;
+  },
+  function(err) {
+    //Do something with request error
+    return Promise.reject(error);
+  }
+);
 //添加一个响应拦截器
-axios.interceptors.response.use(function(res){
-  //在这里对返回的数据进行处理
-  return res;
-},function(err){
-  //Do something with response error
-  return Promise.reject(error);
-})
+axios.interceptors.response.use(
+  function(res) {
+    //在这里对返回的数据进行处理
+    return res;
+  },
+  function(err) {
+    //Do something with response error
+    return Promise.reject(error);
+  }
+);
 ```
 
 2、取消拦截器
+
 ```js
-var myInterceptor = axios.interceptors.request.use(function(){/*....*/});
+var myInterceptor = axios.interceptors.request.use(function() {
+  /*....*/
+});
 axios.interceptors.request.eject(myInterceptor);
 ```
 
 ## 错误处理
-```js
-axios.get('/user/12345')
-  .catch(function(error){
-    if(error.response){
-      //请求已经发出，但是服务器响应返回的状态吗不在2xx的范围内
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.header);
-    }else {
-      //一些错误是在设置请求的时候触发
-      console.log('Error',error.message);
-    }
-    console.log(error.config);
-  });
 
+```js
+axios.get('/user/12345').catch(function(error) {
+  if (error.response) {
+    //请求已经发出，但是服务器响应返回的状态吗不在2xx的范围内
+    console.log(error.response.data);
+    console.log(error.response.status);
+    console.log(error.response.header);
+  } else {
+    //一些错误是在设置请求的时候触发
+    console.log('Error', error.message);
+  }
+  console.log(error.config);
+});
 ```
- 
- ## 取消请求
- 你可以通过一个`cancel token`来取消一个请求
-你可以通过C`ancelToken.source`工厂函数来创建一个`cancel token`
- ```js
+
+## 取消请求
+
+你可以通过一个`cancel token`来取消一个请求
+你可以通过 C`ancelToken.source`工厂函数来创建一个`cancel token`
+
+```js
 var CancelToken = axios.CancelToken;
 var source = CancelToken.source();
 
-axios.get('/user/12345',{
-  cancelToken: source.token
-}).catch(function(thrown){
-  if(axios.isCancel(thrown)){
-    console.log('Request canceled',thrown.message);
-  }else {
-    //handle error
-  }
-});
+axios
+  .get('/user/12345', {
+    cancelToken: source.token,
+  })
+  .catch(function(thrown) {
+    if (axios.isCancel(thrown)) {
+      console.log('Request canceled', thrown.message);
+    } else {
+      //handle error
+    }
+  });
 
 //取消请求（信息的参数可以设置的）
-source.cance("操作被用户取消");
+source.cance('操作被用户取消');
 ```
 
-你可以给`cancelToken`构造函数传递一个executor function来创建一个cancel token:
+你可以给`cancelToken`构造函数传递一个 executor function 来创建一个 cancel token:
 
 ```js
 var cancelToken = axios.CancelToken;
 var cance;
-axios.get('/user/12345',{
-  cancelToken: new CancelToken(function(c){
+axios.get('/user/12345', {
+  cancelToken: new CancelToken(function(c) {
     //这个executor函数接受一个cancel function作为参数
     cancel = c;
-  })
-})
+  }),
+});
 //取消请求
 cancel();
- 
- ```
+```
 
-## 带cookie请求
-axios默认是请求的时候不会带上cookie的，需要通过设置withCredentials: true来解决。
+## 带 cookie 请求
 
-#  axios 上传进度
+axios 默认是请求的时候不会带上 cookie 的，需要通过设置 withCredentials: true 来解决。
+
+# axios 上传进度
+
 ```js
 axios({
-            url:'/handler/material/upload',
-            method:'post',
-            onUploadProgress:function(progressEvent){ //原生获取上传进度的事件
-                if(progressEvent.lengthComputable){
-                    //属性lengthComputable主要表明总共需要完成的工作量和已经完成的工作是否可以被测量
-                    //如果lengthComputable为false，就获取不到progressEvent.total和progressEvent.loaded
-                    callback1(progressEvent);
-                    var complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%'
-                }
-            },
-            data:payload
-        })
+  url: '/handler/material/upload',
+  method: 'post',
+  onUploadProgress: function(progressEvent) {
+    //原生获取上传进度的事件
+    if (progressEvent.lengthComputable) {
+      //属性lengthComputable主要表明总共需要完成的工作量和已经完成的工作是否可以被测量
+      //如果lengthComputable为false，就获取不到progressEvent.total和progressEvent.loaded
+      callback1(progressEvent);
+      var complete =
+        (((progressEvent.loaded / progressEvent.total) * 100) | 0) + '%';
+    }
+  },
+  data: payload,
+});
 ```

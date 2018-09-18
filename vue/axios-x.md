@@ -1,6 +1,6 @@
 # axios 封装
 
-
+[vue axios请求超时的正确处理方法](https://www.jb51.net/article/137589.htm)
 ```js
 import axios from 'axios'
 import { Message, MessageBox } from 'element-ui'

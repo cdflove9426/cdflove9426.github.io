@@ -15,7 +15,7 @@ set -e
 
 # git init
 git add -A
-git commit -m '微信文章'
+git commit -m '0921'
 # git commit -m 'init vuepress source'
 
 # 如果你想要部署到 https://<USERNAME>.github.io

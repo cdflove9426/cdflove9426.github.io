@@ -362,3 +362,16 @@ public static final String REGEX_NEGATIVE_FLOAT       = "^-[1-9]\\d*\\.\\d*|-0\\
 - 是否汉字：^[\u4E00-\u9FFF]+$
 - 邮件地址：^\w+([-+.]\w+)@\w+([-.]\w+).\w+([-.]\w+)*$
 - 手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
+
+
+# 修改时间格式
+```js
+var r="20112233".replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3")
+console.log(r)
+
+
+var dateString = '19930701';
+var pattern = /(\d{4})(\d{2})(\d{2})/;
+var formatedDate = dateString.replace(pattern, '$1-$2-$3');
+console.log(formatedDate);
+```

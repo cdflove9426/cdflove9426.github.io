@@ -1,10 +1,11 @@
 # 使用 D3 绘制 svg 图
 
 # 事件监听
-on("eventName",function)；该函数是添加一个监听事件，它的第一个参数是事件类型，第二个参数是响应事件的内容d3.select(this), 选择当前元素   
+
+on("eventName",function)；该函数是添加一个监听事件，它的第一个参数是事件类型，第二个参数是响应事件的内容 d3.select(this), 选择当前元素
 常见的事件类型
 
-- click：鼠标单击某元素时触发，相当于mousedown和mouseup的组合
+- click：鼠标单击某元素时触发，相当于 mousedown 和 mouseup 的组合
 - mouseover：鼠标放在某元素上触发
 - mouseout：鼠标移出某元素时触发
 - mousemove：鼠标移动时触发
@@ -12,9 +13,38 @@ on("eventName",function)；该函数是添加一个监听事件，它的第一�
 - mouseup：鼠标按钮被松开时触发
 - dblclick：鼠标双击时触发
 
- 
-绘制柱状图
-```js  
+# 最简单的柱状图
+
+```js
+var marge = { top: 60, bottom: 60, left: 60, right: 60 }; //设置边距
+var dataset = [250, 210, 170, 130, 90]; //数据（表示矩形的宽度）
+var svg = d3.select("#testSvg3"); //得到svg画布
+console.log(svg);
+var g = svg
+  .append("g") //定义一个用来装整个图表的一个分组，并设置他的位置
+  .attr("transform", "translate(" + marge.top + "," + marge.left + ")");
+var rectHeight = 30; //设置每一个矩形的高度
+
+g.selectAll("rect")
+  .data(dataset)
+  .enter()S
+  .append("rect")
+  .attr("x", 30) //设置左上点的x
+  .attr("y", function(d, i) {
+    //设置左上点的y
+    return i * rectHeight;
+  })
+  .attr("width", function(d) {
+    //设置宽
+    return d;
+  })
+  .attr("height", rectHeight - 5) //设置长
+  .attr("fill", "blue"); //颜色填充
+```
+
+# 绘制柱状图
+
+```js
 //1.创建svg画布
 let marge = { top: 60, bottom: 60, left: 60, right: 60 };
 let width = document.getElementById(this.id).clientWidth;

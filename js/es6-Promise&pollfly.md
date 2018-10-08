@@ -15,9 +15,14 @@ using [es6-promise](https://www.npmjs.com/package/es6-promise) as a polyfill.
 es6-promise.auto会检测Promise是否存在，若存在原生的Promise，则不执行；
 否则会应用polyfill;
 
+html文档中加入 polyfill文件就可以了
+```html
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="./static/es6-promise4.auto.min.js"></script>
+```
 
 # flex在安卓4.3中的兼容方式
-
 
 经过了一番实践和一些基本的兼容处理，至少在移动端flexbox还是有可为的（安卓4.0+，2.3+没测试，ios都还行）。但是坑也确实还有很多。
 1，flexbox有多个版本，在低版本安卓下实行的是09年的旧版标准Flexible Box Layout Module

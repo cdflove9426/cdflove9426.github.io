@@ -18,13 +18,7 @@ vue 中，弹窗滚动，不影响底部页面
       }
     },
 
-
-
-<!--  ---------------    -->
-
    showModal: false,//模态框显示 
-
-
 
     showModal(newValue, oldValue) {
       if (this.showModal) {
@@ -54,3 +48,7 @@ vue 中，弹窗滚动，不影响底部页面
       })
     },
 ```
+
+
+# vue 如何动态添加图片
+[vue img src动态添加问题](https://segmentfault.com/q/1010000009553629)

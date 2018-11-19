@@ -2,6 +2,10 @@
  
 
 <!-- more -->
+
+[SVG基础教程(超级详细)](https://segmentfault.com/a/1190000012071386)
+[SVG 参考手册](http://www.runoob.com/svg/svg-reference.html)
+
 SVG的基础使用以及 SVG动画
 并介绍一些SVG插件的使用
 <!-- toc -->
@@ -186,3 +190,11 @@ path {
 - butt
 - square 
 - round
+
+
+
+
+# svg  text
+< text > 标签 在svg中添加文本
+
+属性 ： x , y , text-anchor('middle','start','end')

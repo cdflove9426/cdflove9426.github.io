@@ -303,3 +303,20 @@ VSCode中使用vetur插件格式化vue文件时，stylus代码会自动加上大
 
 
 ```
+
+
+
+# vscode  识别@字符
+创建文件
+jsconfig.json
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+
+```

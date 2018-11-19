@@ -375,3 +375,8 @@ var pattern = /(\d{4})(\d{2})(\d{2})/;
 var formatedDate = dateString.replace(pattern, '$1-$2-$3');
 console.log(formatedDate);
 ```
+# 数值 加逗号
+```js
+  // 123123100 => 123,123,100
+  return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+```

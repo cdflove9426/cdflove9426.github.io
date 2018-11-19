@@ -428,3 +428,18 @@ axios({
   data: payload,
 });
 ```
+
+
+# 配置axoi 报错
+> Uncaught (in promise) TypeError: Cannot read property 'cancelToken' of undefined
+
+```js
+axios.interceptors.request.use((config) => {
+  if(config.method === 'post') {
+    config.data = qs.stringify(config.data);
+  }
+  return config;  // 《------添加这一行
+}, (error) => {
+  return Promise.reject(error);
+});
+```

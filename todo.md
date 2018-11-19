@@ -1,4 +1,7 @@
 
+[SVG <foreignObject>简介与截图等应用](https://www.zhangxinxu.com/wordpress/2017/08/svg-foreignobject/)
+[HTML5 file API加canvas实现图片前端JS压缩并上传](https://www.zhangxinxu.com/wordpress/2017/07/html5-canvas-image-compress-upload/)
+
 [微信h5页面开发遇到的坑](https://www.qdfuns.com/article/13989/8fed58c72fd4be96e5fa3a9429ccea2a.html
 
 [vue-cli中vue-scroller的详细用法，上拉加载下拉刷新,vue-axios获取数据的详细过程](https://www.jianshu.com/p/31ad32e7ec13)

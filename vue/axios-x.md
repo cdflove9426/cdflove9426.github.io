@@ -180,3 +180,7 @@ export default {
 
 封装 主要看封装后自己使用是否喜欢这样使用啊。
 [Vue二次封装axios为插件使用](https://juejin.im/post/5ae432aaf265da0b9c1063c8)
+
+
+test --  请求超时要如何处理
+[axios 请求超时处理](https://blog.csdn.net/zgpeterliu/article/details/79636333)

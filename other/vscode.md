@@ -7,8 +7,8 @@ amVim
 
 使用 sync 插件同步配置
 [**code-settings-sync**](https://github.com/shanalikhan/code-settings-sync)
-
-
+[VS Code 快速使用指南](https://juejin.im/post/5bc86b0b5188255ca00cc58f)
+[强大的 VS Code](https://juejin.im/post/5b123ace6fb9a01e6f560a4b)
 
 
 ## Steps To Get a Personal Access Token from GitHub

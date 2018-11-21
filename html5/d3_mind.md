@@ -14,3 +14,13 @@
 
 
 [如何使用 D3 diagonal函数绘制曲线](https://cloud.tencent.com/developer/ask/41631)
+
+
+树装图以及 可以折叠 缩放
+
+[stackoverflow --上说的](https://stackoverflow.com/questions/17558649/d3-tree-layout-separation-between-nodes-using-nodesize)
+[jsfiddle 上较为完整的代码](http://jsfiddle.net/augburto/YMa2y/)
+[codepen](https://codepen.io/augbog/pen/LEXZKK)
+
+
+[D3.js学习笔记十三:D3.js树图(Tree)](http://www.daliane.com/d3_js_xue_xi_bi_ji_shi_san_d3_js_shu_tu_tree/)

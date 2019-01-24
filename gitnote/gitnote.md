@@ -31,6 +31,24 @@ Github仓库创建成功，然后开始上传项目了
 8. git push -u origin master
 
 
+## 回滚
+```bash
+ git reset --hard d2f88f02
+ git push origin xxx -force
+```
+
+##  删除分支和重新拉取
+```bash
+//查看本地分支
+git branch 
+
+//删除目标分支
+git branch -D master
+
+//重新拉取master分支
+git checkout master
+```
+
 ## 生成SSH秘钥 公钥添加到github
 首先在本地创建ssh key；
 ```bash

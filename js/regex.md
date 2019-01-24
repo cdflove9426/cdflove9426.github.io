@@ -1,6 +1,8 @@
 # 正则表达式
  
- 
+
+
+[js 计算两个时间的时间差](https://juejin.im/post/59e3232b6fb9a044fd10cc1b)
 [正则表达式在线工具1](https://regex101.com/)
 [正则表达式在线工具2](http://tool.lu/regex/)
 [正则表达式30分钟入门教程](http://www.cnblogs.com/deerchao/archive/2006/08/24/zhengzhe30fengzhongjiaocheng.html)
@@ -379,4 +381,37 @@ console.log(formatedDate);
 ```js
   // 123123100 => 123,123,100
   return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+```
+
+
+```js
+/*是否带有小数*/
+function    isDecimal(strValue )  {  
+   var  objRegExp= /^\d+\.\d+$/;
+   return  objRegExp.test(strValue);  
+}  
+
+/*校验是否中文名称组成 */
+function ischina(str) {
+    var reg=/^[\u4E00-\u9FA5]{2,4}$/;   /*定义验证表达式*/
+    return reg.test(str);     /*进行验证*/
+}
+
+/*校验是否全由8位数字组成 */
+function isStudentNo(str) {
+    var reg=/^[0-9]{8}$/;   /*定义验证表达式*/
+    return reg.test(str);     /*进行验证*/
+}
+
+/*校验电话码格式 */
+function isTelCode(str) {
+    var reg= /^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/;
+    return reg.test(str);
+}
+
+/*校验邮件地址是否合法 */
+function IsEmail(str) {
+    var reg=/^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/;
+    return reg.test(str);
+}
 ```

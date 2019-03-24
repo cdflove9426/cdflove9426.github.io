@@ -3,6 +3,7 @@
 **travis-ci** 只要是 Github 上的开源项目全部免费。
 如果你的项目不是开源项目，用Travis Pro就需要交钱了。
 如果不想交钱，可以自己搭建CI环境，利用Jenkins CI进行持续集成。
+与Jenkis 不同，Travis 不需要自己在服务器部署服务
 
 github
 [Travis CI 系列：自动化部署博客](https://segmentfault.com/a/1190000011218410)
@@ -153,6 +154,7 @@ jenkins开始执行任务,如果没有配置任务，默认只会在你提交新
 
 **构建**中添加执行语句
 ```bash
+npm config set registry http://registry.npm.taobao.org/ &&
 npm install &&
 npm run unit &&
 rm -rf dist &&
